@@ -12,7 +12,7 @@ def load_fortunes(filename):
 fortunes = load_fortunes(os.path.join(os.path.dirname(__file__), 'fortunes.txt'))
         
 # Title of the app
-st.title('Delivery Game')
+st.title('The Delivery Game')
 
 # When the button is pressed
 if st.button('Show me my card'):
