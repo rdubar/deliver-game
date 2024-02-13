@@ -15,7 +15,7 @@ fortunes = load_fortunes(os.path.join(os.path.dirname(__file__), 'fortunes.txt')
 st.title('The Delivery Game')
 
 # When the button is pressed
-if st.button('Show me my card'):
+if st.button('Show me my card', help="Click to see your fortune"):
     # Select a random fortune
     fortune = random.choice(fortunes)
     # Display the selected fortune
