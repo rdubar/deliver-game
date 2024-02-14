@@ -26,11 +26,11 @@ with st.sidebar:
     # Deliverance: The Delivery Game
     ### or Every Van For Themselves...
     * Each player starts at the Depot on the game board.
-    * Each player throws the dice, the highest throw goes first.
-    * Each player throws a dice, goes forward that number of stars, then takes a card.
-    * Card bonuses or penalties are applied….
-    * If the player has gone round the board and reached the depot, they get another star!
-    * Players may gain “Lucky Break” tokens, which can be used once each only, at any time, to avoid a penalty. Use them wisely!
+    * Each player throws one six sided dice, the highest throw goes first.
+    * Each player throws the dice, and moves forward that number of square, then takes a card.
+    * Card bonuses or penalties are applied: move forward of backward.
+    * If the player has gone forward round the board and reached the depot, they get another star!
+    * Players may gain “Lucky Break” tokens, which can be used once each only, at any time, to avoid any one penalty. Use them wisely!
     * The winner is the first player to collect five stars.
     """)
 

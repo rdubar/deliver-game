@@ -7,7 +7,7 @@ You get green lights all the way! Take a lucky break!
 Your rivals get held up in traffic. Take a star from another player!
 The computer says yes! Take a lucky break from another player!
 It's a perfect day! Go straight to the depot an collect another star!
-You get a big ordeer that holds you up. Got back one square.
+You get a big order that holds you up. Got back one square.
 Your app is buggy. Go back 2 squares.
 The weather is terrible. Go back 3 squares!
 You get a complaint against you! You lose a star!
@@ -42,7 +42,7 @@ A traffic jam delays your delivery. Go back 3 squares.
 You get a parking ticket while making a delivery. Pay a fine, lose a star.
 One of your packages is damaged in transit. Go back 2 squares and lose a lucky break.
 A rival delivery driver challenges you to a race, and you lose. Give up a star.
-Your delivery bike gets stolen! Lose a turn reporting it to the police.
+Your delivery bike gets stolen! Miss a turn reporting it to the police.
 You run out of delivery bags. You must improvise, but it slows you down. Go back 1 square.
 You accidentally play your music too loud and disturb a customer. Lose a star for noise complaint.
 You deliver a birthday cake late, and it's slightly smudged. Lose a lucky break as the customer makes a wish for better service.
