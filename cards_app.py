@@ -49,8 +49,12 @@ with st.sidebar:
     # Adding a clickable email address
     st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
 
-# Main content area for the fortune card functionality
-# When the button is pressed
+# Throw a dice
+if st.button('Throw the dice'):
+    dice = random.randint(1, 6)
+    st.write(f"You threw a {dice}!")
+
+# Shpw a card
 if st.button('Show me my card'):
     if not fortunes:
         fortunes = load_fortunes(fortune_path)
@@ -60,3 +64,5 @@ if st.button('Show me my card'):
     fortunes.remove(fortune)
     # Display the selected fortune
     st.write(fortune)
+
+
