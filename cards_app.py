@@ -22,17 +22,6 @@ st.title('The Delivery Game')
 # Sidebar with the rules of the game
 with st.sidebar:
     st.write("## Rules of the Game")
-    st.write("""
-    # Deliverance: The Delivery Game
-    ### or Every Van For Themselves...
-    * Each player starts at the Depot on the game board.
-    * Each player throws one six sided dice, the highest throw goes first.
-    * Each player throws the dice, and moves forward that number of square, then takes a card.
-    * Card bonuses or penalties are applied: move forward of backward.
-    * If the player has gone forward round the board and reached the depot, they get another star!
-    * Players may gain “Lucky Break” tokens, which can be used once each only, at any time, to avoid any one penalty. Use them wisely!
-    * The winner is the first player to collect five stars.
-    """)
 
     # Sidebar download button for the PDF
     with open("Game_Board.pdf", "rb") as file:
@@ -42,6 +31,23 @@ with st.sidebar:
                 file_name="Game_Board.pdf",
                 mime="application/octet-stream"
             )
+        
+    st.write("""
+    # Deliverance: The Delivery Game
+    ### *or Every Van For Themselves...*
+    * Each player starts at the Depot on the game board.
+    * Each player throws one six sided dice, the highest throw goes first.
+    * Each player throws the dice, and moves forward that number of squares, then takes a card.
+    * Card bonuses or penalties are applied: move forward of backward as directed.
+    * If the player has gone forward round the board and reached the Depot, they collect another star!
+    * Players may gain “Lucky Break” tokens, which can be used once each only, at any time, to avoid any one penalty. Use them wisely!
+    * The winner is the first player to collect five stars.
+
+    Comments and suggestions are welcome!
+    """)
+
+    # Adding a clickable email address
+    st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
 
 # Main content area for the fortune card functionality
 # When the button is pressed
