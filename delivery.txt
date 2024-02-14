@@ -1,0 +1,48 @@
+You get a big order, with a big tip! Go forward 1 square
+Your orders are all ready for you! Advance 2 squares
+There's an advertising blitz! Go forwards 3 squares!
+The sun is shining. Move forward 3 squares!
+You get a superstar review with extra compliments. Take another star!
+You get green lights all the way! Take a lucky break!
+Your rivals get held up in traffic. Take a star from another player!
+The computer says yes! Take a lucky break from another player!
+It's a perfect day! Go straight to the depot an collect another star!
+You get a big ordeer that holds you up. Got back one square.
+Your app is buggy. Go back 2 squares.
+The weather is terrible. Go back 3 squares!
+You get a complaint against you! You lose a star!
+Your orders are messed up! You lose  lucky break.
+Your van breaks down! Give a star to another player.
+You fail an inspection! Give a lucky break to another player.
+A celebrity tweets about your speedy delivery! Move forward 4 squares.
+Your GPS finds a new shortcut. Skip ahead 2 squares!
+A rival delivery service gets a bad review. Collect a star from the bank.
+You upgrade your delivery vehicle. It’s super fast now! Advance 3 squares.
+Your customer tips you with concert tickets! Move ahead 2 squares.
+You deliver to a party and they invite you in for cake. Gain a burst of energy! Take another turn.
+A new trendy cafe opens and chooses your service for delivery. Gain a star!
+You find a wallet on the street and return it. The owner rewards you. Jump forward 2 squares.
+Your eco-friendly packaging becomes a hit! Collect a star.
+A food critic loves the meal you delivered. Go forward 3 squares.
+You got featured in a local magazine! Collect a lucky break.
+Your health and safety rating is top-notch! Advance 1 square and gain a star.
+You get a thank-you note from a happy customer. It makes your day, and you move 1 square forward.
+Your new app feature reduces wait times. Move forward 2 squares.
+A customer's dog greets you with a wagging tail but no barking. It's a good day. Move forward 1 square.
+You implement a new recycling program that's a huge success. Take a star!
+You spill coffee on your delivery route map. Lose a turn cleaning it up.
+You accidentally deliver a vegan meal with dairy. Go back 2 squares.
+A customer enters the wrong address. You go in circles. Move back 3 squares.
+You mix up two orders. Spend extra time sorting it out. Move back 1 square.
+Your delivery scooter gets a flat tire. Lose a lucky break.
+You forget a customer’s side dish. Go back to the restaurant. Go back 2 squares.
+A cat sneaks into your delivery van and causes chaos. Lose a star trying to get it out.
+You get caught in a sudden downpour without an umbrella. Retreat 2 squares.
+A traffic jam delays your delivery. Go back 3 squares.
+You get a parking ticket while making a delivery. Pay a fine, lose a star.
+One of your packages is damaged in transit. Go back 2 squares and lose a lucky break.
+A rival delivery driver challenges you to a race, and you lose. Give up a star.
+Your delivery bike gets stolen! Lose a turn reporting it to the police.
+You run out of delivery bags. You must improvise, but it slows you down. Go back 1 square.
+You accidentally play your music too loud and disturb a customer. Lose a star for noise complaint.
+You deliver a birthday cake late, and it's slightly smudged. Lose a lucky break as the customer makes a wish for better service.
