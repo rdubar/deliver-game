@@ -37,10 +37,12 @@ with st.sidebar:
     ### *or Every Van For Themselves...*
     * Each player starts at the Depot on the game board.
     * Each player throws one six sided dice, the highest throw goes first.
-    * Each player throws the dice, and moves forward that number of squares, then takes a card.
+    * Each player throws the dice, and moves forward that number of spaces, then takes a card.
     * Card bonuses or penalties are applied: move forward of backward as directed.
     * If the player has gone forward round the board and reached the Depot, they collect another star!
     * Players may gain “Lucky Break” tokens, which can be used once each only, at any time, to avoid any one penalty. Use them wisely!
+    * If you land on a "Lucky Break" space, take a Lucky break token. 
+    * If a card says you lose "Lucky Break" or stars but have none left to lose, miss a turn instead. 
     * The winner is the first player to collect five stars.
 
     Comments and suggestions are welcome!
