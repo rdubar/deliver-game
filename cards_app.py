@@ -46,7 +46,8 @@ Experience all the thrills of being a delivery driver, battling with traffic, cu
 * If you are unlucky, you may lose a star, or have to go back to the Depot without collecting a star.
 * Players may gain “Lucky Break” tokens, which can be used once each at any time to avoid any one penalty. Use them wisely!
 * If you land on a "Lucky Break" space, take a Lucky break token. 
-* If a card says you lose "Lucky Break" or stars but have none left to lose, miss a turn instead. 
+* If a card says you lose a "Lucky Break" or stars but have none left to lose, miss a turn instead. 
+* If there are no other players to take a star or "Lucky Break" from, you can take one from the bank instead.
 * The winner is the first player to collect five stars.
 Comments and suggestions are welcome!
     """)

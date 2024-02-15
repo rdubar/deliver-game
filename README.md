@@ -43,8 +43,8 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 pip install -r requirements.txt
 
 # Running the App
-# After installation, run the app using Streamlit:
 
+# After installation, run the app using Streamlit:
 streamlit run cards_app.py
 
 # Navigate to http://localhost:8501 in your web browser to view the app.

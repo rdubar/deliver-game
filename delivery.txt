@@ -11,7 +11,7 @@ You get a big order that holds you up. Got back one square.
 Your app is buggy. Go back 2 squares.
 The weather is terrible. Go back 3 squares!
 You get a complaint against you! You lose a star!
-Your orders are messed up! You lose  lucky break.
+Your orders are messed up! You lose a lucky break.
 Your van breaks down! Give a star to another player.
 You fail an inspection! Give a lucky break to another player.
 A celebrity tweets about your speedy delivery! Move forward 4 squares.
