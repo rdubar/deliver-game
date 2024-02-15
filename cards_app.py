@@ -14,7 +14,9 @@ def load_fortunes(filename):
         fortunes = file.readlines()
     return [fortune.strip() for fortune in fortunes]
 
-fortunes = load_fortunes(fortune_path)
+# Initialize the fortunes list in the session state if it doesn't exist
+if 'fortunes' not in st.session_state:
+    st.session_state.fortunes = load_fortunes(fortune_path)
         
 # Title of the app
 st.title('The Delivery Game')
@@ -56,15 +58,16 @@ if st.button('Throw the dice'):
     dice = random.randint(1, 6)
     st.write(f"You threw a {dice}!")
 
-# Shpw a card
+# Show a card button
 if st.button('Show me my card'):
-    if not fortunes:
-        fortunes = load_fortunes(fortune_path)
-    # Select a random fortune
-    fortune = random.choice(fortunes)
-    # Remove the fortune from the list
-    fortunes.remove(fortune)
-    # Display the selected fortune
-    st.write(fortune)
-
-
+    if not st.session_state.fortunes:
+        # Reload fortunes if all have been shown
+        st.session_state.fortunes = load_fortunes(fortune_path)
+        st.write("All fortunes have been shown. Starting over.")
+    else:
+        # Select a random fortune and remove it from the list to avoid duplicates
+        fortune = random.choice(st.session_state.fortunes)
+        st.session_state.fortunes.remove(fortune)
+        # Display the selected fortune
+        st.write(fortune)
+        
