@@ -64,7 +64,7 @@ Distributed under the MIT License. See LICENSE for more information.
 ## Contact
 * Roger Dubar, rdubar [at] gmail.com
 * Project Link: https://github.com/rdubar/deliver-game
-* Example Link: https://rdubar-deliver-game-cards-app-vxokav.streamlit.app/
+* Example Link: https://deliver-game.streamlit.app/
 
 ## Acknowledgements
 * The Open University - The U101 Team, for inspiration.
