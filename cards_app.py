@@ -35,19 +35,20 @@ with st.sidebar:
             )
         
     st.write("""
-    # Deliverance: The Delivery Game
-    ### *or Every Van For Themselves...*
-    * Each player starts at the Depot on the game board.
-    * Each player throws one six sided dice, the highest throw goes first.
-    * Each player throws the dice, and moves forward that number of spaces, then takes a card.
-    * Card bonuses or penalties are applied: move forward of backward as directed.
-    * If the player has gone forward round the board and reached the Depot, they collect another star!
-    * Players may gain “Lucky Break” tokens, which can be used once each only, at any time, to avoid any one penalty. Use them wisely!
-    * If you land on a "Lucky Break" space, take a Lucky break token. 
-    * If a card says you lose "Lucky Break" or stars but have none left to lose, miss a turn instead. 
-    * The winner is the first player to collect five stars.
-
-    Comments and suggestions are welcome!
+# Deliverance: The Delivery Game
+### *or Every Van For Themselves...*
+Experience all the thrills of being a delivery driver, battling with traffic, customers, huge corporations and faceless AI systems, all from the comfort of your own home! 
+* Each player starts at the Depot on the game board.
+* Each player throws one six sided dice, the highest throw goes first.
+* Each player throws the dice, and moves forward that number of spaces, then takes a card.
+* Card bonuses or penalties are applied: move forward of backward as directed.
+* If the player has gone forward round the board and reached the Depot, they collect another star!
+* If you are unlucky, you may lose a star, or have to go back to the Depot without collecting a star.
+* Players may gain “Lucky Break” tokens, which can be used once each at any time to avoid any one penalty. Use them wisely!
+* If you land on a "Lucky Break" space, take a Lucky break token. 
+* If a card says you lose "Lucky Break" or stars but have none left to lose, miss a turn instead. 
+* The winner is the first player to collect five stars.
+Comments and suggestions are welcome!
     """)
 
     # Adding a clickable email address
@@ -70,4 +71,3 @@ if st.button('Show me my card'):
         st.session_state.fortunes.remove(fortune)
         # Display the selected fortune
         st.write(fortune)
-        
