@@ -28,12 +28,13 @@ Have fun, and change it as needed.
 If you are unsure about any of these steps you can use ChatGPT to guide you. 
 
 ```sh
-# Move to the folder you wish to install into, for example in Linux or MacOS:
-mkdir -p ~/fortunes
-cd ~/fortunes
+# Move to the folder you wish to install into, for example in Linux, MacOS or Windows with WSL2:
+mkdir -p ~/random-cards
+cd ~/random-cards
 
-# Clone the repository 
-gh repo clone rdubar/deliver-game
+# Clone the repository
+# gh repo clone rdubar/deliver-game  # if you use gh
+git clone https://github.com/rdubar/random-card.git
 
 # Set up a virtual environment (optional, but recommended)
 python -m venv venv
