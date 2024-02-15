@@ -29,8 +29,8 @@ If you are unsure about any of these steps you can use ChatGPT to guide you.
 
 ```sh
 # Move to the folder you wish to install into, for example in Linux, MacOS or Windows with WSL2:
-mkdir -p ~/random-cards
-cd ~/random-cards
+mkdir -p ~/random-card
+cd ~/random-card
 
 # Clone the repository
 # gh repo clone rdubar/deliver-game  # if you use gh
