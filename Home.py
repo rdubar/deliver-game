@@ -6,8 +6,6 @@ from settings import SHOW_GENERATED_CARD
 
 # streamlit run Home.py
 
-
-
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
 def load_fortunes(filename='delivery.txt'):
@@ -16,7 +14,7 @@ def load_fortunes(filename='delivery.txt'):
 # Initialize the fortunes list in the session state if it doesn't exist
 if 'fortunes' not in st.session_state:
     st.session_state.fortunes = load_fortunes()
-        
+
 # Title of the app
 st.title('The Delivery Game')
 

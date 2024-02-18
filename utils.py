@@ -1,7 +1,6 @@
-import os
-from settings import data_dir
 import streamlit as st
-from settings import images_dir
+import os
+from settings import data_dir, images_dir
 
 def load_data(filename, split=False):
     # Use the current working directory as the base
