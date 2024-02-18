@@ -1,5 +1,6 @@
 import streamlit as st
 from utils import download_game_board_button
+from settings import wordcloud_path
 
 st.title('About the Game')
 
@@ -20,5 +21,12 @@ Your suggestions and feedback are very welcome.
 # Adding a clickable email address
 st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
 
-download_game_board_button()    
+download_game_board_button()   
 
+st.divider()
+
+"""
+*Wordcloud of text in the game:*
+"""
+
+st.image(wordcloud_path)

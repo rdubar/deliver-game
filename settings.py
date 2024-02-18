@@ -13,4 +13,5 @@ data_dir = os.path.join(base_dir, 'data')
 
 images_dir = os.path.join(base_dir, 'images')
 
+wordcloud_path = os.path.join(images_dir, 'wordcloud.png')
 

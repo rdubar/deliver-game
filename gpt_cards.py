@@ -12,7 +12,6 @@ openai.api_key = api_key
 Use OpenAI's GPT-3 model to generate random cards for the game.
 """
 
-
 prompt = load_data('prompt.txt')
 rules = load_data('rules.md')
 cards = load_data('delivery.txt')

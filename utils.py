@@ -1,9 +1,12 @@
 import streamlit as st
 import os
 from settings import data_dir, images_dir
+from wordcloud_tool import create_wordcloud
 
 """
 Helper functions for the Random Card Generator app.
+
+Run from the command line to refresh the wordcloud image.
 """
 
 def load_data(filename, split=False):
@@ -30,3 +33,17 @@ def download_game_board_button():
                 file_name="Game_Board.pdf",
                 mime="application/octet-stream"
             )   
+
+def make_wordcloud(text):
+    # Create a word cloud from the text
+    output = os.path.join(images_dir, 'wordcloud.png')
+    create_wordcloud(text, filename=output)
+
+if __name__ == "__main__":
+    prompt = load_data('prompt.txt')
+    rules = load_data('rules.md')
+    cards = load_data('delivery.txt')
+    full_prompt = prompt + rules + cards
+
+    make_wordcloud(full_prompt)
+    print("Word cloud created successfully.")
