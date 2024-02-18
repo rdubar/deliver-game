@@ -2,6 +2,11 @@ import streamlit as st
 import random
 import os
 from utils import load_data
+
+
+requirements = load_data('requirements.txt')
+st.write(requirements)
+
 from gpt_cards import get_gpt_card
 
 # streamlit run cards_app.py
