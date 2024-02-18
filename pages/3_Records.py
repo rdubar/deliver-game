@@ -15,7 +15,12 @@ data = get_all_records()
 
 if data:
     text = ""
+    count = 0
     for record in data:
-        time = record['timestamp'].strftime("%Y-%m-%d %H:%M:%S")
-        text += f"{time}   {record['generated_text']}\n"
-    st.text_area("Generated Cards", text, height=400)
+        entry = record['generated_text']
+        if "example log entry" in entry:
+            continue
+        count += 1
+        time = record['timestamp'].strftime("%Y-%m-%d %H:%M")
+        text += f"{time}   {entry}\n"
+    st.text_area(f"{count:,} Generated Cards", text, height=400)
