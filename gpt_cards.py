@@ -23,7 +23,7 @@ def get_gpt_card():
     try:
         return query_chatgpt(full_prompt).choices[0].message.content
     except Exception as e:
-        return f"Error: {e}"
+        return f"Error: {e} [{len(api_key)} {len(full_prompt)}]"
 
 if __name__ == "__main__":
     print(get_gpt_card())
