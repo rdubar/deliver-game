@@ -15,6 +15,7 @@ Have fun, and modify for your own use as needed.
 ## Features
 
 - **Random Fortune**: Each click provides a unique, randomly selected fortune from our curated list.
+- **ChatGPT AI generated fortune**: Click to generate a unique fortune eah time (experimental)
 - **Simple UI**: A clean and straightforward interface for easy use.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
 
