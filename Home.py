@@ -2,11 +2,11 @@ import streamlit as st
 import random
 from utils import load_data
 from gpt_cards import get_gpt_card
+from settings import SHOW_GENERATED_CARD
 
 # streamlit run Home.py
 
-# Set to False to hide the experimental AI card generator feature
-SHOW_GENERATED_CARD = True
+
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 

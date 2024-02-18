@@ -1,12 +1,11 @@
 import os
-
-# current_script_dir = os.path.dirname(__file__)
-
+from settings import data_dir
+import streamlit as st
+from settings import images_dir
 
 def load_data(filename, split=False):
     # Use the current working directory as the base
-    base_dir = os.getcwd()
-    data_dir = os.path.join(base_dir, 'data')
+    
     file_path = os.path.join(data_dir, filename)
     
     try:
@@ -18,3 +17,13 @@ def load_data(filename, split=False):
     except Exception as e:
         print(f"Error loading data from {file_path}: {e}")
         return None
+
+def download_game_board_button():
+    # download button for the PDF
+    with open(os.path.join(images_dir, "Game_Board.pdf"), "rb") as file:
+        st.download_button(
+                label="Download Game Board",
+                data=file,
+                file_name="Game_Board.pdf",
+                mime="application/octet-stream"
+            )   

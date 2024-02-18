@@ -58,7 +58,7 @@ streamlit run Home.py
 
 # Navigate to http://localhost:8501 in your web browser to view the app.
 ```
-If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `Home.py` file.
+If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `settings.py` file.
 
 ## How to Contribute
 Your contributions and suggesitons are welcome! If you'd like to add more fortunes or improve the app:
