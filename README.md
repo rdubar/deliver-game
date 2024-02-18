@@ -8,6 +8,8 @@ It was made as an aid to a boardgame development project for the Open University
 
 You use it to easily try out random cards for games without having to print them out.
 
+The game rules, card test and other details are in the `data` folder.
+
 Have fun, and change it as needed.
 
 ## Features
@@ -40,8 +42,11 @@ git clone https://github.com/rdubar/random-card.git
 python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
-# Install dependencies
+# Install dependencies (nb: keep minimal for Streamlit)
 pip install -r requirements.txt
+
+# set up API keys as needed by editing .streamlit/secrets.toml
+mkdir -p .streamlit && cp secrets.toml .streamlit/secrets.toml
 
 # Running the App
 
@@ -72,3 +77,8 @@ Distributed under the MIT License. See LICENSE for more information.
 * Streamlit - "The fastest way to build and share data apps."
 * Python - The programming language used to create this app.
 * ChatGPT - Your friendly AI assistant.
+
+## TODO:
+
+* Integrate MondoDB for logging
+

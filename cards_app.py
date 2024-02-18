@@ -2,13 +2,11 @@ import streamlit as st
 import random
 import os
 from utils import load_data
-from gpt_cards import get_gpt_card
+from gpt_cards import get_gpt_card, api_key
 
 # streamlit run cards_app.py
 
 st.set_page_config(page_title="Random Card", page_icon=":game_die:")
-
-st.write(os.getcwd())
 
 rules = load_data('rules.md')
 
@@ -55,5 +53,8 @@ if st.button('Show me my card'):
         # Display the selected fortune
         st.write(fortune)
 
-if st.button('Generate unique GPT Card'):
-    st.write(get_gpt_card())
+if not api_key or len(api_key) < 5:
+    if st.button('Generate unique GPT Card'):
+        st.write(get_gpt_card())
+else:
+    st.write(f'Status: {len(api_key)}')
