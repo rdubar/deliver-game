@@ -53,8 +53,5 @@ if st.button('Show me my card'):
         # Display the selected fortune
         st.write(fortune)
 
-if not api_key or len(api_key) < 5:
-    if st.button('Generate unique GPT Card'):
-        st.write(get_gpt_card())
-else:
-    st.write(f'Status: {len(api_key)}')
+if st.button('Generate unique GPT Card'):
+    st.write(get_gpt_card())
