@@ -2,6 +2,7 @@ import streamlit as st
 import openai
 import os
 from utils import load_data
+from mongo_logger import log_text
 
 api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else os.environ.get('OPENAI_API_KEY', '')
 engine = "gpt-3.5-turbo"
@@ -21,7 +22,9 @@ def query_chatgpt(prompt, engine=engine, history=[]):
 
 def get_gpt_card():
     try:
-        return query_chatgpt(full_prompt).choices[0].message.content
+        text = query_chatgpt(full_prompt).choices[0].message.content
+        log_text(text)
+        return text
     except Exception as e:
         return f"Error: {e} [{len(api_key)} {len(full_prompt)}]"
 
