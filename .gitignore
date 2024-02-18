@@ -1,7 +1,7 @@
 # This file tells 'git' to ignore certain files and directories.
-
 # You can ignore this too.
 
+tests/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
