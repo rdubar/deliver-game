@@ -8,6 +8,10 @@ api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else 
 engine = "gpt-3.5-turbo"
 openai.api_key = api_key
 
+"""
+Use OpenAI's GPT-3 model to generate random cards for the game.
+"""
+
 
 prompt = load_data('prompt.txt')
 rules = load_data('rules.md')
