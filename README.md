@@ -19,13 +19,14 @@ Have fun, and modify for your own use as needed.
 - **Simple UI**: A clean and straightforward interface for easy use.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
 - **Logging**: The time & text of any AI generated cards are logged on MongoDB.
+- **Wordcloud**: A wordcloud of words in the game (`python utils.py` to update).
 Note that no personal or user data is recorded - just the time the button was pressed, and the text it generated. 
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.6 or higher
+- Python 3.11 recommended
 - Streamlit
 
 ### Installation
