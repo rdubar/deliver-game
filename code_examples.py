@@ -2,7 +2,9 @@ import streamlit as st
 import random
 import os
 
-# streamlit run code_examples.py
+"""
+Sample code to demonstrate how to create a Streamlit app with multiple columns.
+"""
 
 st.set_page_config(page_title="Random Card", page_icon=":card:")
 

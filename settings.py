@@ -1,5 +1,9 @@
 import os
 
+"""
+Global settings for the Random Card Generator app.
+"""
+
 # Set to False to hide the experimental AI card generator feature
 SHOW_GENERATED_CARD = True
 

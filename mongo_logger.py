@@ -1,10 +1,14 @@
 # mongo_logger.py
-
+import streamlit as st
 import argparse
-from pymongo import MongoClient
 from datetime import datetime
 import os
-import streamlit as st
+from pymongo import MongoClient
+
+"""
+Manage logging of generated text to MongoDB.
+"""
+
 
 # Setup MongoDB connection
 mongo_uri = st.secrets["mongodb"]["uri"] if "mongodb" in st.secrets else os.environ.get('MONGO_URI', '')
@@ -48,7 +52,6 @@ def get_all_records():
 
 
 if __name__ == "__main__":
-    # createw argparse with -l --log and -r --retrieve options
     parser = argparse.ArgumentParser(description='Log generated text to MongoDB.')
     parser.add_argument('-l', '--log', type=str, help='Log the generated text to MongoDB.')
     parser.add_argument('-r', '--retrieve', action='store_true', help='Retrieve all records from MongoDB.')

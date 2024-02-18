@@ -2,6 +2,10 @@ import streamlit as st
 import os
 from settings import data_dir, images_dir
 
+"""
+Helper functions for the Random Card Generator app.
+"""
+
 def load_data(filename, split=False):
     # Use the current working directory as the base
     
