@@ -2,7 +2,7 @@
 
 ## Overview
 
-This simple Streamlit App shows random lines of text fom a file. 
+This Streamlit App shows random lines of text fom a file. 
 
 It was made as an aid to a boardgame development project for the Open University's U101 module "Design thinking: creativity for the 21st century". 
 
@@ -85,5 +85,5 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Todo: 
 
-* Add a page to view the randomly generated cards
+* Move helper modules to a seperate folder. 
 
