@@ -1,8 +1,12 @@
 import os
 
+# current_script_dir = os.path.dirname(__file__)
+
+
 def load_data(filename, split=False):
-    current_script_dir = os.path.dirname(__file__)
-    data_dir = os.path.join(current_script_dir, 'data')
+    # Use the current working directory as the base
+    base_dir = os.getcwd()
+    data_dir = os.path.join(base_dir, 'data')
     file_path = os.path.join(data_dir, filename)
     
     try:
