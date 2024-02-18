@@ -3,14 +3,12 @@ import random
 from utils import load_data
 from gpt_cards import get_gpt_card
 
-# streamlit run cards_app.py
+# streamlit run Home.py
 
 # Set to False to hide the experimental AI card generator feature
 SHOW_GENERATED_CARD = True
 
-st.set_page_config(page_title="Random Card", page_icon=":game_die:")
-
-rules = load_data('rules.md')
+st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
 def load_fortunes(filename='delivery.txt'):
     return load_data(filename, split=True)
@@ -21,21 +19,6 @@ if 'fortunes' not in st.session_state:
         
 # Title of the app
 st.title('The Delivery Game')
-
-# Sidebar with the rules of the game
-with st.sidebar:
-    # Sidebar download button for the PDF
-    with open("Game_Board.pdf", "rb") as file:
-        st.download_button(
-                label="Download Game Board",
-                data=file,
-                file_name="Game_Board.pdf",
-                mime="application/octet-stream"
-            )        
-    st.write(rules)
-
-    # Adding a clickable email address
-    st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
 
 # Throw a dice
 if st.button('Throw the dice'):

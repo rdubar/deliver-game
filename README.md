@@ -54,11 +54,11 @@ mkdir -p .streamlit && cp secrets.toml .streamlit/secrets.toml
 # Running the App
 
 # After installation, run the app using Streamlit:
-streamlit run cards_app.py
+streamlit run Home.py
 
 # Navigate to http://localhost:8501 in your web browser to view the app.
 ```
-If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `cards_app.py` file.
+If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `Home.py` file.
 
 ## How to Contribute
 Your contributions and suggesitons are welcome! If you'd like to add more fortunes or improve the app:
@@ -83,4 +83,7 @@ Distributed under the MIT License. See LICENSE for more information.
 * Python - The programming language used to create this app.
 * ChatGPT - Your friendly AI assistant.
 
+## Todo: 
+
+* Add a page to view the randomly generated cards
 
