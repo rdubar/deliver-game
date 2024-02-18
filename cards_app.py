@@ -51,5 +51,5 @@ if st.button('Show me my card'):
     # Display the selected fortune
     st.write(fortune)
 
-if st.button('Generate unique card using OpenAI GPT-3'):
+if st.button('Experimental: Generate unique card using OpenAI GPT-3'):
     st.write(get_gpt_card())

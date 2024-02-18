@@ -5,9 +5,10 @@ and features a depot space as the start and end point. Designed for players aged
 and up, the game lasts 30-60 minutes and ends when a player collects five stars.
 
 Each card drawn by players can either be a bonus or a penalty with a 50% chance 
-for each. Bonuses may advance a player 1-6 spaces, award an extra star, or grant 
-a Lucky Break token. Penalties can set a player back 1-6 spaces, or remove a 
-star or Lucky Break token, with distribution ratios mirroring those of bonuses.
+for each. Bonuses may advamove a player forward or back 1-6 spaces (50% of cards), 
+award or take away an extra star (25%), or grant or take away a Lucky Break token (25%).
+Half of the times you tell a player to take a star or a lucky break, you will say 
+to do this from another player.
 
 As the AI, generate a single, new game card that fits within these rules. 
 Your card should include a title, a description of the bonus or penalty, 
