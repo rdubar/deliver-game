@@ -1,8 +1,9 @@
 import streamlit as st
 import random
-import os
 from utils import load_data
-from gpt_cards import get_gpt_card, api_key
+
+# delete this if you do not wish to use the OpenAI generator
+from gpt_cards import get_gpt_card
 
 # streamlit run cards_app.py
 
@@ -51,5 +52,6 @@ if st.button('Show me my card'):
     # Display the selected fortune
     st.write(fortune)
 
+# delete this if you do not wish to use the OpenAI generator
 if st.button('Experimental: Generate unique card using OpenAI GPT-3'):
     st.write(get_gpt_card())
