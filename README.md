@@ -8,9 +8,9 @@ It was made as an aid to a boardgame development project for the Open University
 
 You use it to easily try out random cards for games without having to print them out.
 
-The game rules, card test and other details are in the `data` folder.
+The game rules, card text, and AI prompt are in the `data` folder.
 
-Have fun, and change it as needed.
+Have fun, and modify for your own use as needed.
 
 ## Features
 
