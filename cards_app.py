@@ -1,11 +1,12 @@
 import streamlit as st
 import random
 from utils import load_data
-
-# delete this if you do not wish to use the OpenAI generator
 from gpt_cards import get_gpt_card
 
 # streamlit run cards_app.py
+
+# Set to False to hide the experimental AI card generator feature
+SHOW_GENERATED_CARD = True
 
 st.set_page_config(page_title="Random Card", page_icon=":game_die:")
 
@@ -52,6 +53,6 @@ if st.button('Show me my card'):
     # Display the selected fortune
     st.write(fortune)
 
-# delete this if you do not wish to use the OpenAI generator
-if st.button('Experimental: Generate unique card using OpenAI GPT-3'):
-    st.write(get_gpt_card())
+if SHOW_GENERATED_CARD:
+    if st.button('Experimental: Generate unique card using OpenAI GPT-3'):
+        st.write(get_gpt_card())
