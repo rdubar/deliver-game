@@ -45,13 +45,11 @@ if st.button('Show me my card'):
     if not st.session_state.fortunes:
         # Reload fortunes if all have been shown
         st.session_state.fortunes = load_fortunes()
-        st.write("All fortunes have been shown. Starting over.")
-    else:
-        # Select a random fortune and remove it from the list to avoid duplicates
-        fortune = random.choice(st.session_state.fortunes)
-        st.session_state.fortunes.remove(fortune)
-        # Display the selected fortune
-        st.write(fortune)
+    # Select a random fortune and remove it from the list to avoid duplicates
+    fortune = random.choice(st.session_state.fortunes)
+    st.session_state.fortunes.remove(fortune)
+    # Display the selected fortune
+    st.write(fortune)
 
-if st.button('Generate unique GPT Card'):
+if st.button('Generate unique card using OpenAI GPT-3'):
     st.write(get_gpt_card())
