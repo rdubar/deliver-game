@@ -8,6 +8,8 @@ from gpt_cards import get_gpt_card
 
 st.set_page_config(page_title="Random Card", page_icon=":game_die:")
 
+st.write(os.getcwd())
+
 rules = load_data('rules.md')
 
 def load_fortunes(filename='delivery.txt'):
