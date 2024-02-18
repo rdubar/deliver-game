@@ -28,6 +28,8 @@ Note that no personal or user data is recorded - just the time the button was pr
 
 - Python 3.11 recommended
 - Streamlit
+- OpenAI (for GPT generated cards)
+- MongoDB (for logging)
 
 ### Installation
 
