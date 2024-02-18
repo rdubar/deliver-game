@@ -18,6 +18,8 @@ Have fun, and modify for your own use as needed.
 - **ChatGPT AI generated fortune**: Click to generate a unique fortune each time (experimental)
 - **Simple UI**: A clean and straightforward interface for easy use.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
+- **Logging**: The time & text of any AI generated cards are logged on MongoDB.
+Note that no personal or user data is recorded - just the time the button was pressed, and the text it generated. 
 
 ## Getting Started
 
@@ -79,7 +81,4 @@ Distributed under the MIT License. See LICENSE for more information.
 * Python - The programming language used to create this app.
 * ChatGPT - Your friendly AI assistant.
 
-## TODO:
-
-* Integrate MondoDB for logging
 
