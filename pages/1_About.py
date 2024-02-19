@@ -1,6 +1,8 @@
 import streamlit as st
 from tools.settings import download_game_board_button, WORDCLOUD_PATH, show_gitub_repo_link
 
+st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
+
 st.title('About the Game')
 
 text =f"""

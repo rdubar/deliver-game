@@ -1,6 +1,8 @@
 import streamlit as st
 from tools.settings import PROMPT, CARDS, show_gitub_repo_link
 
+st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
+
 st.title('Resources')
 
 # provide link to full source code of app at https://github.com/rdubar/random-card

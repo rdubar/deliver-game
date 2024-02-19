@@ -1,6 +1,8 @@
 import streamlit as st
 from tools.mongo_logger import get_all_records
 
+st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
+
 st.title('Statistics')
 
 """
