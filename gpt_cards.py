@@ -26,7 +26,7 @@ def query_chatgpt(prompt, engine=engine, history=[]):
 def get_gpt_card():
     try:
         text = query_chatgpt(full_prompt).choices[0].message.content
-        log_text(text)
+        log_text(text, engine=engine)
         return text
     except Exception as e:
         return f"Error: {e} [{len(api_key)} {len(full_prompt)}]"

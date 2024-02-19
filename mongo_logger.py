@@ -16,7 +16,7 @@ client = MongoClient(mongo_uri)
 db = client.your_database_name  # Replace with your actual database name
 collection = db.your_collection_name  # Replace with your actual collection name
 
-def log_text(generated_text):
+def log_text(generated_text, engine=None):
     """
     Logs generated text and current timestamp to MongoDB.
     
@@ -27,6 +27,8 @@ def log_text(generated_text):
         "timestamp": datetime.now(),
         "generated_text": generated_text
     }
+    if engine:
+        document["engine"] = engine
     try:
         collection.insert_one(document)
         print("Log successfully written to MongoDB.")
