@@ -13,8 +13,10 @@ Manage logging of generated text to MongoDB.
 try:
     mongo_uri = st.secrets["mongodb"]["uri"] if "mongodb" in st.secrets else os.environ.get('MONGO_URI', '')
     client = MongoClient(mongo_uri)
-    db = client.your_database_name  # Replace with your actual database name
-    collection = db.your_collection_name  # Replace with your actual collection name
+    db_name = st.secrets["mongodb"]["db"] if "mongodb" in st.secrets else os.environ.get('MONGO_DB', '')
+    collection_name = st.secrets["mongodb"]["collection"] if "mongodb" in st.secrets else os.environ.get('MONGO_COLLECTION', '')
+    db = client[db_name]
+    collection = db[collection_name]
 except Exception as e:
     print(f"Failed to connect to MongoDB: {e}")
     mongo_uri = None
@@ -74,4 +76,4 @@ if __name__ == "__main__":
         print(f"Retrieved {len(records)} records from MongoDB.")
         for record in records:
             print(record)
-            
+        
