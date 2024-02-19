@@ -1,6 +1,7 @@
 # This file tells 'git' to ignore certain files and directories.
 # You can ignore this too.
 
+# folder for coding tests, not part of the repository
 tests/
 
 # Byte-compiled / optimized / DLL files
