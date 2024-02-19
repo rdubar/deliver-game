@@ -1,5 +1,5 @@
 import streamlit as st
-from tools.settings import download_game_board_button, WORDCLOUD_PATH
+from tools.settings import download_game_board_button, WORDCLOUD_PATH, show_gitub_repo_link
 
 st.title('About the Game')
 
@@ -20,6 +20,8 @@ st.markdown(text)
 
 # Adding a clickable email address
 st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
+
+show_gitub_repo_link()
 
 download_game_board_button()   
 

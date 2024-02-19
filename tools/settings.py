@@ -17,11 +17,17 @@ IMAGES_DIR = os.path.join(BASE_DIR, 'images')
 
 WORDCLOUD_PATH = os.path.join(IMAGES_DIR, 'wordcloud.png')
 
+GITHIB_REPO_URL = "https://github.com/rdubar/random-card"
+
 """
 Helper functions for the Random Card Generator app.
 
 Run from the command line to refresh the wordcloud image.
 """
+
+def show_gitub_repo_link():
+    download_text =  f'The full source code for this app is available on [GitHib]({GITHIB_REPO_URL}).'
+    st.markdown(download_text, unsafe_allow_html=True)
 
 def load_data(filename, split=False):
     # Use the current working directory as the base
