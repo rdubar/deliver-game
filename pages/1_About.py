@@ -34,3 +34,4 @@ st.divider()
 """
 
 st.image(WORDCLOUD_PATH)
+

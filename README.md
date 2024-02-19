@@ -87,7 +87,7 @@ Distributed under the MIT License. See LICENSE for more information.
 * Streamlit - "The fastest way to build and share data apps."
 * Python - The programming language used to create this app.
 * OpenAI - Powering ChatGPT & Microsoft Co-Pilot, for rapid development.
-* MongoDB - Very simple database management
+* MongoDB - Very simple database management.
 
 
 
