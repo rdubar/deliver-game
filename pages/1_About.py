@@ -1,7 +1,5 @@
 import streamlit as st
-from tools.settings import download_game_board_button, WORDCLOUD_PATH, DEFAULT_AI_MODEL
-
-AI_MODEL = st.session_state.get('AI_MODEL', DEFAULT_AI_MODEL)
+from tools.settings import download_game_board_button, WORDCLOUD_PATH
 
 st.title('About the Game')
 
@@ -9,7 +7,7 @@ text =f"""
 This game was developed for the Open University U101 module 
 *Design thinking: creativity for the 21st century* TMA03 in February 2024.
 
-The game features the ability to generate new "event" cards using OpenAI's {AI_MODEL} model.
+The game features the ability to generate new "event" cards using OpenAI's GPT models.
 
 Please enjoy!
 

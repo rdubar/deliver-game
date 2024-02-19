@@ -17,24 +17,11 @@ IMAGES_DIR = os.path.join(BASE_DIR, 'images')
 
 WORDCLOUD_PATH = os.path.join(IMAGES_DIR, 'wordcloud.png')
 
-DEFAULT_AI_MODEL = "gpt-4"
-
-AI_MODELS = ["gpt-3.5-turbo", "gpt-4"]
-if DEFAULT_AI_MODEL not in AI_MODELS:
-    AI_MODELS.append(DEFAULT_AI_MODEL)
-    AI_MODELS.sort()
-
 """
 Helper functions for the Random Card Generator app.
 
 Run from the command line to refresh the wordcloud image.
 """
-
-def setup_ai_model():
-    default_model = DEFAULT_AI_MODEL
-    
-    if 'AI_MODEL' not in st.session_state:
-        st.session_state.AI_MODEL = default_model
 
 def load_data(filename, split=False):
     # Use the current working directory as the base
@@ -71,8 +58,6 @@ RULES = load_data('rules.md')
 CARDS = load_data('delivery.txt')
 FULL_PROMPT = PROMPT + RULES + CARDS
 
-# setup the AI model in the session state
-setup_ai_model()
 
 if __name__ == "__main__":
     make_wordcloud(FULL_PROMPT)

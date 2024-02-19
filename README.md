@@ -15,7 +15,7 @@ Have fun, and modify for your own use as needed.
 ## Features
 
 - **Random Fortune**: Each click provides a unique, randomly selected fortune from our curated list.
-- **ChatGPT AI generated fortune**: Click to generate a unique fortune each time (experimental)
+- **ChatGPT AI generated fortune**: Click to generate a unique fortune each time.
 - **Simple UI**: A clean and straightforward interface for easy use.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
 - **Logging**: The time & text of any AI generated cards are logged on MongoDB.
@@ -82,12 +82,10 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Acknowledgements
 * The Open University - The U101 Team, for inspiration.
+* Alphapet Ventures - My employer's parent company, for their support.
 * Streamlit - "The fastest way to build and share data apps."
 * Python - The programming language used to create this app.
-* ChatGPT - Your friendly AI assistant.
+* ChatGPT - Your friendly AI assistant, for rapid development.
 
-## Todo: 
-
-* Provide wo buttons for models gpt-3 and gtp-4
 
 

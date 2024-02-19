@@ -1,11 +1,7 @@
 import streamlit as st
 import random
-from tools.settings import setup_ai_model, CARDS, SHOW_GENERATED_CARD, DEFAULT_AI_MODEL
+from tools.settings import CARDS, SHOW_GENERATED_CARD
 from tools.gpt_cards import get_gpt_card
-
-# Initialize AI_MODEL in the session state
-setup_ai_model()
-AI_MODEL = st.session_state.get('AI_MODEL', DEFAULT_AI_MODEL)
 
 # streamlit run Home.py
 
@@ -50,7 +46,7 @@ if st.button('Throw the dice'):
     st.write(msg)
 
 # Show a card button
-if st.button('Show me my card'):
+if st.button('Show me a card from the deck'):
     if not st.session_state.fortunes:
         # Reload fortunes if all have been shown
         st.session_state.fortunes = load_fortunes()
@@ -61,10 +57,11 @@ if st.button('Show me my card'):
     st.write(fortune)
 
 if SHOW_GENERATED_CARD:
-    # ge the ai model from the session state
-    ai_model = st.session_state.AI_MODEL
-    if ai_model:
-        if st.button(f"Generate unique card using OpenAI's {ai_model}"):
-            st.write(get_gpt_card())
-    else:
-        st.write("Unable to load AI model. Please contact support.")
+    # AI model selector
+    # show a gpt-3 card
+    if st.button("Generate a unique card using OpenAI's gpt-3.5-turbo"):
+        st.write(get_gpt_card(model="gpt-3.5-turbo"))
+
+    # show a gpt-4 card
+    if st.button("Generate a unique card using OpenAI's gpt-4"):
+        st.write(get_gpt_card(model="gpt-4"))
