@@ -86,7 +86,8 @@ Distributed under the MIT License. See LICENSE for more information.
 * Alphapet Ventures - My employer's parent company, for their support.
 * Streamlit - "The fastest way to build and share data apps."
 * Python - The programming language used to create this app.
-* ChatGPT - Your friendly AI assistant, for rapid development.
-
+* OpenAI - ChatGPT & Microsoft Co-Pilit, for rapid development.
+* MongoDB - Very simple database management
+    
 
 
