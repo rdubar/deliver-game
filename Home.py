@@ -5,7 +5,6 @@ from tools.gpt_cards import get_gpt_card
 
 # streamlit run Home.py
 
-
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
 def load_fortunes():

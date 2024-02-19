@@ -1,11 +1,10 @@
 import streamlit as st
 import openai
 import os
-from .settings import load_data
+from .settings import load_data, OPEN_AI_API_KEY
 from .mongo_logger import log_text
 
-api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else os.environ.get('OPENAI_API_KEY', '')
-openai.api_key = api_key
+openai.api_key = OPEN_AI_API_KEY or None
 
 """
 Use OpenAI's models to generate random cards for the game.
@@ -18,6 +17,8 @@ cards = load_data('delivery.txt')
 full_prompt = prompt + rules + cards
 
 def query_chatgpt(prompt, model=None, history=[]):
+    if not OPEN_AI_API_KEY:
+        return "No OpenAI API key found. Please contact support."
     if not model:
         return "No AI model specified. Please contact support."
     messages = history + [{"role": "user", "content": prompt}]
@@ -25,6 +26,8 @@ def query_chatgpt(prompt, model=None, history=[]):
     return response
 
 def get_gpt_card(model=None):
+    if not OPEN_AI_API_KEY:
+        return "No OpenAI API key found. Please contact support."
     try:
         text = query_chatgpt(full_prompt, model=model).choices[0].message.content
         log_text(text, model=model)

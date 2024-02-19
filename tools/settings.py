@@ -19,6 +19,15 @@ WORDCLOUD_PATH = os.path.join(IMAGES_DIR, 'wordcloud.png')
 
 GITHIB_REPO_URL = "https://github.com/rdubar/random-card"
 
+try:
+    OPEN_AI_API_KEY = api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else os.environ.get('OPENAI_API_KEY', '')
+except:
+    OPEN_AI_API_KEY = False
+
+if not OPEN_AI_API_KEY:
+    print("OpenAI API key not found. Please setup in secrets.toml.")
+    SHOW_GENERATED_CARD = False
+
 """
 Helper functions for the Random Card Generator app.
 
