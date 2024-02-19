@@ -4,6 +4,8 @@ from tools.mongo_logger import get_all_records
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
+# create anchor at top of page
+st.markdown("<a id='top'></a>", unsafe_allow_html=True)
 st.title('Resources')
 
 records = get_all_records()
@@ -41,3 +43,6 @@ if records:
         model = record['model'] if 'model' in record else 'gpt-3.5-turbo'
         text += f"{time}  {model:20}\n{entry}\n\n"
     st.text_area(f"There have been {count:,} AI Generated Cards", text, height=400)
+
+    # link to top of page
+    st.markdown("<a href='#top'>Back to top</a>", unsafe_allow_html=True)
