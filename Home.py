@@ -1,7 +1,7 @@
 import streamlit as st
 import random
 from tools.gpt_cards import get_gpt_card
-from tools.settings import SHOW_GENERATED_CARD, CARDS
+from tools.settings import SHOW_GENERATED_CARD, CARDS, AI_MODEL
 
 # streamlit run Home.py
 
@@ -34,5 +34,5 @@ if st.button('Show me my card'):
     st.write(fortune)
 
 if SHOW_GENERATED_CARD:
-    if st.button('Generate unique card using OpenAI GPT-3'):
+    if st.button(f"Generate unique card using OpenAI's {AI_MODEL}"):
         st.write(get_gpt_card())
