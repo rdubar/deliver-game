@@ -88,5 +88,6 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Todo: 
 
-* Move helper modules to a seperate folder. 
+* Show which engine is used in logged output
+* More descriptive link from webpage to the Prompt & this page
 
