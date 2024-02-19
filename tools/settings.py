@@ -35,7 +35,7 @@ Run from the command line to refresh the wordcloud image.
 """
 
 def show_gitub_repo_link():
-    download_text =  f'The full source code for this app is available on [GitHib]({GITHIB_REPO_URL}).'
+    download_text =  f'The full source code for this app is available on [GitHub]({GITHIB_REPO_URL}).'
     st.markdown(download_text, unsafe_allow_html=True)
 
 def load_data(filename, split=False):
