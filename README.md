@@ -88,5 +88,6 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Todo: 
 
-* More descriptive link from webpage to the Prompt & this page
+* Provide wo buttons for models gpt-3 and gtp-4
+
 

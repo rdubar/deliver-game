@@ -22,7 +22,7 @@ st.markdown(download_text, unsafe_allow_html=True)
 
 st.text_area('Prompt', value=PROMPT, height=400, max_chars=1500, key='prompt')
 
-""" You can select the AI model used to generate new cards here:"""
+""" You can select the default AI model used to generate new cards here:"""
 
 # streamlit selector tool
 

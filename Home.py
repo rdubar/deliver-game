@@ -22,10 +22,32 @@ if 'fortunes' not in st.session_state:
 # Title of the app
 st.title('The Delivery Game')
 
-# Throw a dice
+# Initialize or update session state for the last throw and count
+if 'last_throw' not in st.session_state:
+    st.session_state['last_throw'] = None
+    st.session_state['repeat_count'] = 0
+
+# Button to throw the dice
 if st.button('Throw the dice'):
     dice = random.randint(1, 6)
-    st.write(f"You threw a {dice}!")
+    
+    # Check if the same number was thrown as last time
+    if dice == st.session_state['last_throw']:
+        st.session_state['repeat_count'] += 1
+        messages = [
+            f"Wow, another {dice}!",
+            f"Again a {dice}!",
+            f"{dice}, yet again!",
+        ]
+        # Cycle through messages based on how many times the same number has been thrown
+        msg = messages[st.session_state['repeat_count'] % len(messages)]
+    else:
+        # Reset the repeat count and update the last throw
+        st.session_state['repeat_count'] = 0
+        st.session_state['last_throw'] = dice
+        msg = f"You threw a {dice}!"
+    
+    st.write(msg)
 
 # Show a card button
 if st.button('Show me my card'):
