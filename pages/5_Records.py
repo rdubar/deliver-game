@@ -22,5 +22,6 @@ if data:
             continue
         count += 1
         time = record['timestamp'].strftime("%Y-%m-%d %H:%M")
-        text += f"{time}   {entry}\n"
+        model = record['model'] if 'model' in record else 'gpt-3.5-turbo'
+        text += f"{time}  {model:20}\n{entry}\n\n"
     st.text_area(f"{count:,} Generated Cards", text, height=400)

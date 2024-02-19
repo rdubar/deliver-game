@@ -1,9 +1,14 @@
 import streamlit as st
 import random
+from tools.settings import setup_ai_model, CARDS, SHOW_GENERATED_CARD, DEFAULT_AI_MODEL
 from tools.gpt_cards import get_gpt_card
-from tools.settings import SHOW_GENERATED_CARD, CARDS, AI_MODEL
+
+# Initialize AI_MODEL in the session state
+setup_ai_model()
+AI_MODEL = st.session_state.get('AI_MODEL', DEFAULT_AI_MODEL)
 
 # streamlit run Home.py
+
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -34,5 +39,10 @@ if st.button('Show me my card'):
     st.write(fortune)
 
 if SHOW_GENERATED_CARD:
-    if st.button(f"Generate unique card using OpenAI's {AI_MODEL}"):
-        st.write(get_gpt_card())
+    # ge the ai model from the session state
+    ai_model = st.session_state.AI_MODEL
+    if ai_model:
+        if st.button(f"Generate unique card using OpenAI's {ai_model}"):
+            st.write(get_gpt_card())
+    else:
+        st.write("Unable to load AI model. Please contact support.")

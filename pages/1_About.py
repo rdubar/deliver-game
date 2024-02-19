@@ -1,5 +1,8 @@
 import streamlit as st
-from tools.settings import download_game_board_button, WORDCLOUD_PATH ,AI_MODEL
+from tools.settings import download_game_board_button, WORDCLOUD_PATH, DEFAULT_AI_MODEL
+
+AI_MODEL = st.session_state.get('AI_MODEL', DEFAULT_AI_MODEL)
+
 st.title('About the Game')
 
 text =f"""

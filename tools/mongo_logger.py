@@ -9,7 +9,6 @@ from pymongo import MongoClient
 Manage logging of generated text to MongoDB.
 """
 
-
 # Setup MongoDB connection
 mongo_uri = st.secrets["mongodb"]["uri"] if "mongodb" in st.secrets else os.environ.get('MONGO_URI', '')
 client = MongoClient(mongo_uri)

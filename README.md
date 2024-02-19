@@ -88,6 +88,5 @@ Distributed under the MIT License. See LICENSE for more information.
 
 ## Todo: 
 
-* Show which engine is used in logged output
 * More descriptive link from webpage to the Prompt & this page
 
