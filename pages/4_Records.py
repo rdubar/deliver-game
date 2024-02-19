@@ -1,5 +1,5 @@
 import streamlit as st
-from mongo_logger import get_all_records
+from tools.mongo_logger import get_all_records
 
 st.title('Statistics')
 

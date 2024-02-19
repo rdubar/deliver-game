@@ -1,15 +1,14 @@
 import streamlit as st
 import random
-from utils import load_data
-from gpt_cards import get_gpt_card
-from settings import SHOW_GENERATED_CARD
+from tools.gpt_cards import get_gpt_card
+from tools.settings import SHOW_GENERATED_CARD, CARDS
 
 # streamlit run Home.py
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
-def load_fortunes(filename='delivery.txt'):
-    return load_data(filename, split=True)
+def load_fortunes():
+    return CARDS.split('\n')
 
 # Initialize the fortunes list in the session state if it doesn't exist
 if 'fortunes' not in st.session_state:

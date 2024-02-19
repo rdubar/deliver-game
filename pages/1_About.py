@@ -1,7 +1,5 @@
 import streamlit as st
-from utils import download_game_board_button
-from settings import wordcloud_path
-
+from tools.settings import download_game_board_button, WORDCLOUD_PATH
 st.title('About the Game')
 
 """
@@ -29,4 +27,4 @@ st.divider()
 *Wordcloud of text in the game:*
 """
 
-st.image(wordcloud_path)
+st.image(WORDCLOUD_PATH)

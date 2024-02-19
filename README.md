@@ -19,7 +19,7 @@ Have fun, and modify for your own use as needed.
 - **Simple UI**: A clean and straightforward interface for easy use.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
 - **Logging**: The time & text of any AI generated cards are logged on MongoDB.
-- **Wordcloud**: A wordcloud of words in the game (`python utils.py` to update).
+- **Wordcloud**: A wordcloud of words in the game (`python tools/settings.py` to update).
 Note that no personal or user data is recorded - just the time the button was pressed, and the text it generated. 
 
 ## Getting Started
@@ -61,7 +61,7 @@ streamlit run Home.py
 
 # Navigate to http://localhost:8501 in your web browser to view the app.
 ```
-If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `settings.py` file.
+If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `tools/settings.py` file.
 
 ## How to Contribute
 Your contributions and suggesitons are welcome! If you'd like to add more fortunes or improve the app:

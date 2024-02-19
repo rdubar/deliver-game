@@ -1,8 +1,8 @@
 import streamlit as st
 import openai
 import os
-from utils import load_data
-from mongo_logger import log_text
+from .settings import load_data
+from .mongo_logger import log_text
 
 api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else os.environ.get('OPENAI_API_KEY', '')
 engine = "gpt-3.5-turbo"
