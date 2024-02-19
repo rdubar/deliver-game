@@ -4,7 +4,7 @@ from tools.mongo_logger import get_all_records
 st.title('Statistics')
 
 """
-This page shows the text of cards that have been generated using OpenAI's GPT-3 model.
+This page shows the text of cards that have been generated using OpenAI's GPT models.
 
 Every time you click the button to create a new card, the text of the card is added to the list below.
 

@@ -17,6 +17,8 @@ IMAGES_DIR = os.path.join(BASE_DIR, 'images')
 
 WORDCLOUD_PATH = os.path.join(IMAGES_DIR, 'wordcloud.png')
 
+AI_MODEL = "gpt-3.5-turbo"
+
 """
 Helper functions for the Random Card Generator app.
 

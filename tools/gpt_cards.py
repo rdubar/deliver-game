@@ -1,11 +1,11 @@
 import streamlit as st
 import openai
 import os
-from .settings import load_data
+from .settings import load_data, AI_MODEL
 from .mongo_logger import log_text
 
 api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else os.environ.get('OPENAI_API_KEY', '')
-engine = "gpt-3.5-turbo"
+
 openai.api_key = api_key
 
 """
@@ -18,15 +18,15 @@ cards = load_data('delivery.txt')
 
 full_prompt = prompt + rules + cards
 
-def query_chatgpt(prompt, engine=engine, history=[]):
+def query_chatgpt(prompt, model=AI_MODEL, history=[]):
     messages = history + [{"role": "user", "content": prompt}]
-    response = openai.chat.completions.create(model=engine, messages=messages)
+    response = openai.chat.completions.create(model=model, messages=messages)
     return response
 
-def get_gpt_card():
+def get_gpt_card(model=AI_MODEL):
     try:
-        text = query_chatgpt(full_prompt).choices[0].message.content
-        log_text(text, engine=engine)
+        text = query_chatgpt(full_prompt, model=model).choices[0].message.content
+        log_text(text, model=model)
         return text
     except Exception as e:
         return f"Error: {e} [{len(api_key)} {len(full_prompt)}]"
