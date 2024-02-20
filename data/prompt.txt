@@ -10,7 +10,7 @@ award or take away an extra star (25%), or grant or take away a Lucky Break toke
 Half of the times you tell a player to take a star or a lucky break, you will say 
 to do this from another player.
 
-Card should highlight the social aspects of a delivery service and its interactions
+Cards should highlight the social aspects of a delivery service and its interactions
 with customers, apps, service providers, traffic, regulations and AI algorithms.
 
 As the AI, generate a single, new game card that fits within these rules. 
