@@ -58,9 +58,9 @@ if st.button('Show me a card from the deck'):
 if SHOW_GENERATED_CARD:
     # AI model selector
     # show a gpt-3 card
-    if st.button("Generate a unique card using OpenAI's gpt-3.5-turbo"):
+    if st.button("Generate a unique card using gpt-3.5-turbo"):
         st.write(get_gpt_card(model="gpt-3.5-turbo"))
 
     # show a gpt-4 card
-    if st.button("Generate a unique card using OpenAI's gpt-4"):
+    if st.button("Generate a unique card using gpt-4"):
         st.write(get_gpt_card(model="gpt-4"))
