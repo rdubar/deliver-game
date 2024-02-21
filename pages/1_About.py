@@ -6,14 +6,16 @@ st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 st.title('About the Game')
 
 text =f"""
-This game was developed for the Open University U101 module 
+This web app supports a game I am developing for the Open University U101 module 
 *Design thinking: creativity for the 21st century* TMA03 in February 2024.
 
-It features the ability to generate new "event" cards using OpenAI's GPT models.
+You can access the game board, rules and cards here.
+
+The app features the ability to generate new "event" cards using OpenAI's GPT models.
 
 Please enjoy!
 
-Your suggestions and feedback are very welcome.
+I'd love to hear what you think :)
 
 -- Roger
 
