@@ -9,5 +9,7 @@ download_game_board_button()
 
 st.write(RULES)
 
+"""*Your comments and suggestions are always welcome!*"""
+
 # Adding a clickable email address
 st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)

@@ -18,4 +18,4 @@ Experience all the thrills of being a delivery driver, battling with traffic, cu
 * If a card says you lose a "Lucky Break" or a Star but have none left to lose, they miss a turn instead. 
 * If there are no other players to take a star or "Lucky Break" from, you can take one from the bank instead.
 * The winner is the first player to collect five stars.
-Comments and suggestions are welcome!
+* For added excitement, see the optional "Special Ability" rules!

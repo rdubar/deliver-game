@@ -71,6 +71,7 @@ def make_wordcloud(text):
 PROMPT = load_data('prompt.txt')
 RULES = load_data('rules.md')
 CARDS = load_data('delivery.txt')
+SPECIAL = load_data('special.md')
 FULL_PROMPT = PROMPT + RULES + CARDS
 
 
