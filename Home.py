@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 from tools.settings import CARDS, SHOW_GENERATED_CARD
 from tools.gpt_cards import get_gpt_card
 from tools.throw_dice import st_throw_dice_button
