@@ -18,15 +18,10 @@ if 'fortunes' not in st.session_state:
 # Title of the app
 st.title('The Delivery Game')
 
-# Initialize or update session state for the last throw and count
-if 'last_throw' not in st.session_state:
-    st.session_state['last_throw'] = None
-    st.session_state['repeat_count'] = 0
-
 # Button to throw the dice
 st_throw_dice_button(sides=6, show_sides=True)
 
-# Show a card button
+# Show a random card from the standard deck button
 if st.button('Show me a card from the deck'):
     if not st.session_state.fortunes:
         # Reload fortunes if all have been shown
@@ -38,7 +33,6 @@ if st.button('Show me a card from the deck'):
     st.write(fortune)
 
 if SHOW_GENERATED_CARD:
-    # AI model selector
     # show a gpt-3 card
     if st.button("Generate a unique card using gpt-3.5-turbo"):
         st.write(get_gpt_card(model="gpt-3.5-turbo"))

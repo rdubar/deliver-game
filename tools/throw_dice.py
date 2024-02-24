@@ -1,6 +1,11 @@
 import streamlit as st 
 import random
 
+# Initialize or update session state for the last throw and count
+if 'last_throw' not in st.session_state:
+    st.session_state['last_throw'] = None
+    st.session_state['repeat_count'] = 0
+
 def st_throw_dice_button(sides=6, show_sides=True):
     # Button to throw the dice
     button_text = f"Throw a {sides}-sided dice" if show_sides else "Throw the dice"
