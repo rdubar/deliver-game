@@ -1,5 +1,10 @@
+import os
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
+try:
+    from .settings import IMAGES_DIR, FULL_PROMPT
+except ImportError:
+    from settings import IMAGES_DIR, FULL_PROMPT
 
 def create_wordcloud(text, stopwords=None, filename='wordcloud.png'):
     """
@@ -28,8 +33,15 @@ def create_wordcloud(text, stopwords=None, filename='wordcloud.png'):
     plt.savefig(filename, bbox_inches='tight', pad_inches=0)
     plt.close()
 
+def make_game_wordcloud(text=FULL_PROMPT):
+    # Create a word cloud from the text
+    output = os.path.join(IMAGES_DIR, 'wordcloud.png')
+    create_wordcloud(text, filename=output)
+    print(f"Word cloud image saved to {output}")
+
 # Example usage
 if __name__ == "__main__":
     example_text = "This is a sample text for generating a word cloud. Word clouds are visual representations of word frequency."
     custom_stopwords = {'for', 'a', 'are'}  # Example of additional stopwords
-    create_wordcloud(example_text, stopwords=custom_stopwords, filename='example_wordcloud.png')
+    # create_wordcloud(example_text, stopwords=custom_stopwords, filename='example_wordcloud.png')
+    make_game_wordcloud()

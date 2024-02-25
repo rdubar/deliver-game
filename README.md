@@ -20,7 +20,7 @@ Have fun, and modify for your own use as needed.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
 - **Logging**: The time, text and AI model of any AI generated cards are logged on MongoDB.
 - **Failsafe**: If openai and/or MongoDB details are not provided, the respective features are not shown to the user.
-- **Wordcloud**: A wordcloud of words in the game (run `python tools/settings.py` to update).
+- **Wordcloud**: A wordcloud of words in the game (run `python tools/wordcloud_tool.py` to update).
 Note that no personal or user data is recorded - just the time the button was pressed, and the text it generated. 
 
 ## Getting Started

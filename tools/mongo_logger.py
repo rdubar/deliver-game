@@ -1,9 +1,14 @@
 import streamlit as st
 import os
 import argparse
+import json
 import dataclasses
 from datetime import datetime
 from pymongo import MongoClient
+try:
+    from .settings import BACKUP_DIR
+except ImportError:
+    from settings import BACKUP_DIR
 
 @dataclasses.dataclass
 class MongoConfig:
@@ -72,6 +77,26 @@ class MongoConfig:
             print(record)
         print(f"Retrieved all {len(records):,} records from MongoDB.")
 
+    def download_backup(self, name="mongo_db_backup"):
+        # create backup folder if needed
+        if not os.path.exists(BACKUP_DIR):
+            os.makedirs(BACKUP_DIR)
+        # create a filename with the current date and time
+        filename = os.path.join(BACKUP_DIR, f"{name}_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.json")
+        records = self.get_records()
+        with open(filename, 'w') as file:
+            for record in records:
+                # Use json.dumps with the static method for datetime conversion
+                json_record = json.dumps(record, default=self.datetime_converter, ensure_ascii=False)
+                file.write(json_record + '\n')
+        size = os.path.getsize(filename)
+        print(f"Backup of {len(records):,} records saved to {filename} ({size/1024:.2f} KB).")
+
+    @staticmethod
+    def datetime_converter(o):
+        if isinstance(o, datetime):
+            return o.isoformat()  # Using ISO 8601 format for datetime objects
+
 mongo_db = MongoConfig()
 
 
@@ -81,6 +106,7 @@ if __name__ == "__main__":
     parser.add_argument('-c', '--cards', action='store_true', help='Show cards logged to MongoDB.')    
     parser.add_argument('-l', '--log', type=str, help='Log the generated text to MongoDB.')
     parser.add_argument('-r', '--retrieve', action='store_true', help='Retrieve all records from MongoDB.')
+    parser.add_argument('-b', '--backup', action='store_true', help='Backup all records from MongoDB to a JSON file.')
     args = parser.parse_args()
 
     if args.log:
@@ -98,3 +124,7 @@ if __name__ == "__main__":
     if args.cards:
         # get all records that have a value of tag = generated_text
         mongo_db.report_by_tag("generated_text")
+
+    if args.backup:
+        # download all records to a JSON file
+        mongo_db.download_backup()

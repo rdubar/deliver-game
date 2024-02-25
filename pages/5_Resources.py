@@ -1,6 +1,9 @@
 import streamlit as st
+import os
 from tools.settings import PROMPT, CARDS, OPEN_AI_API_KEY, WORDCLOUD_PATH, show_gitub_repo_link
 from tools.mongo_logger import mongo_db
+from tools.wordcloud_tool import make_game_wordcloud
+
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -53,13 +56,18 @@ if records:
     st.text_area(f"There have been {count:,} AI Generated Cards", text, height=400)
 
 
+if not os.path.exists(WORDCLOUD_PATH):
+    make_game_wordcloud()
+    
 st.header("Wordcloud")
 
 """
 This is a wordcloud of all of the text in the game:
 """
-
-st.image(WORDCLOUD_PATH)
+try:
+    st.image(WORDCLOUD_PATH)
+except Exception as e:
+    st.write(f"Error: {e}")
 
 
 # link to top of page

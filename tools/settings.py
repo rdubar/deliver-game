@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-from .wordcloud_tool import create_wordcloud
 
 """
 Global settings & helpers for the Random Card Generator app.
@@ -18,6 +17,8 @@ IMAGES_DIR = os.path.join(BASE_DIR, 'images')
 WORDCLOUD_PATH = os.path.join(IMAGES_DIR, 'wordcloud.png')
 
 GITHIB_REPO_URL = "https://github.com/rdubar/random-card"
+
+BACKUP_DIR = os.path.join(BASE_DIR, 'backups')
 
 try:
     OPEN_AI_API_KEY = api_key = st.secrets["openai"]["openai_api_key"] if "openai" in st.secrets else os.environ.get('OPENAI_API_KEY', '')
@@ -63,21 +64,12 @@ def download_game_board_button():
                 mime="application/octet-stream"
             )   
 
-def make_wordcloud(text):
-    # Create a word cloud from the text
-    output = os.path.join(IMAGES_DIR, 'wordcloud.png')
-    create_wordcloud(text, filename=output)
-
 PROMPT = load_data('prompt.txt')
 RULES = load_data('rules.md')
 CARDS = load_data('delivery.txt')
 SPECIAL = load_data('special.md')
 FULL_PROMPT = PROMPT + RULES + CARDS
 
-
-if __name__ == "__main__":
-    make_wordcloud(FULL_PROMPT)
-    print("Word cloud created successfully.")
 
 
 

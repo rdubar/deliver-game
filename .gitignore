@@ -3,6 +3,8 @@
 
 # folder for coding tests, not part of the repository
 tests/
+# folder for database backups, not part of the repository
+backups/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
