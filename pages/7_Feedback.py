@@ -10,6 +10,8 @@ st.title("Feedback")
 I'd love to hear your thoughts on the game. Please fill out the form below.
 
 You can leave your name, location and email address if you like!
+
+No personal data will be stored or used for any purpose other than improving the game.
 """
 
 with st.form(key="feedback_form"):
