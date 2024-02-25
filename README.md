@@ -92,6 +92,3 @@ Distributed under the MIT License. See LICENSE for more information.
 * Python - The programming language used to create this app.
 * OpenAI - Powering ChatGPT & Microsoft Co-Pilot, for rapid development.
 * MongoDB - Very simple database management.
-
-
-

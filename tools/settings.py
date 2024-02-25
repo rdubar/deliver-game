@@ -64,6 +64,10 @@ def download_game_board_button():
                 mime="application/octet-stream"
             )   
 
+def is_running_locally():
+    # Assuming you run your app on a different port when deploying remotely
+    return st.config.get_option('server.port') == 8501
+
 PROMPT = load_data('prompt.txt')
 RULES = load_data('rules.md')
 CARDS = load_data('delivery.txt')

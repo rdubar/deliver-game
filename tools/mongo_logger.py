@@ -96,6 +96,9 @@ class MongoConfig:
     def datetime_converter(o):
         if isinstance(o, datetime):
             return o.isoformat()  # Using ISO 8601 format for datetime objects
+        
+    def get_feedback(self):
+        return self.get_by_tag("feedback")
 
 mongo_db = MongoConfig()
 
