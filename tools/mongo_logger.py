@@ -65,6 +65,8 @@ def get_all_records():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Log generated text to MongoDB.')
+    parser.add_argument('-f', '--feedback', action='store_true', help='Show feedback logged MongoDB.')
+    parser.add_argument('-c', '--cards', action='store_true', help='Show cards logged to MongoDB.')    
     parser.add_argument('-l', '--log', type=str, help='Log the generated text to MongoDB.')
     parser.add_argument('-r', '--retrieve', action='store_true', help='Retrieve all records from MongoDB.')
     args = parser.parse_args()
@@ -74,6 +76,18 @@ if __name__ == "__main__":
     elif args.retrieve:
         records = get_all_records()
         print(f"Retrieved {len(records)} records from MongoDB.")
+        for record in records:
+            print(record)
+
+    if args.feedback:
+        records = collection.find({"feedback": {"$exists": True}})
+        print(f"Retrieved {records.count()} feedback records from MongoDB.")
+        for record in records:
+            print(record)
+
+    if args.cards:
+        records = collection.find({"generated_text": {"$exists": True}})
+        print(f"Retrieved {records.count()} generated text records from MongoDB.")
         for record in records:
             print(record)
         

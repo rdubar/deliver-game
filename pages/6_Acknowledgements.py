@@ -1,5 +1,7 @@
 import streamlit as st
 
+st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
+
 """
 ### Acknowledgements
 * The Open University - The U101 Team, for inspiration.
