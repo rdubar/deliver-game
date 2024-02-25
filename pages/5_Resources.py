@@ -6,6 +6,7 @@ st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
 # create anchor at top of page
 st.markdown("<a id='top'></a>", unsafe_allow_html=True)
+
 st.title('Resources')
 
 # get all records, to test if we want to show this content
@@ -29,7 +30,8 @@ st.text_area("Default Game Cards:", value=CARDS, height=400, max_chars=1500, key
 
 if OPEN_AI_API_KEY:
     st.header("AI Prompt")
-    st.text_area("AI Prompt (combined with rules and default cards):", value=PROMPT, height=400, max_chars=1500, key='prompt')
+    st.text_area("AI Prompt (used with the game rules and standard cards to generate new cards):", 
+        value=PROMPT, height=400, max_chars=1500, key='prompt')
 
 if records:
     st.header("AI Generated Cards:")

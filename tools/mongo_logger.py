@@ -24,7 +24,7 @@ except Exception as e:
 if not mongo_uri:
     print("MongoDB URI not found. Please setup in secrets.toml.")
 
-def log_text(generated_text, model=None):
+def log_text(text, tag="generated_text", model=None):
     """
     Logs generated text and current timestamp to MongoDB.
     
@@ -35,7 +35,7 @@ def log_text(generated_text, model=None):
         return
     document = {
         "timestamp": datetime.now(),
-        "generated_text": generated_text
+        tag: text
     }
     if model:
         document["model"] = model
@@ -43,7 +43,7 @@ def log_text(generated_text, model=None):
         collection.insert_one(document)
         print("Log successfully written to MongoDB.")
     except Exception as e:
-        print(f"Failed to write log to MongoDB: {e} {len(mongo_uri)} {len(generated_text)}")
+        print(f"Failed to write log to MongoDB: {e} {len(mongo_uri)} {len(text)}")
 
 def get_all_records():
     """

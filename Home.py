@@ -1,42 +1,30 @@
 import streamlit as st
-import random
 from tools.settings import CARDS, SHOW_GENERATED_CARD
-from tools.gpt_cards import get_gpt_card
-from tools.throw_dice import st_throw_dice_button
+from tools.settings import download_game_board_button, show_gitub_repo_link
 
 # streamlit run Home.py
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
-def load_fortunes():
-    return CARDS.split('\n')
-
-# Initialize the fortunes list in the session state if it doesn't exist
-if 'fortunes' not in st.session_state:
-    st.session_state.fortunes = load_fortunes()
-
 # Title of the app
 st.title('The Delivery Game')
 
-# Button to throw the dice
-st_throw_dice_button(sides=6, show_sides=True)
+"""
+Welcome to **Deliverance**, a fun game for 1-5 players aged 8 and up.
 
-# Show a random card from the standard deck button
-if st.button('Show me a card from the deck'):
-    if not st.session_state.fortunes:
-        # Reload fortunes if all have been shown
-        st.session_state.fortunes = load_fortunes()
-    # Select a random fortune and remove it from the list to avoid duplicates
-    fortune = random.choice(st.session_state.fortunes)
-    st.session_state.fortunes.remove(fortune)
-    # Display the selected fortune
-    st.write(fortune)
+It was developed for the Open University U101 module *Design thinking: creativity for the 21st century* TMA03 in February 2024.
 
-if SHOW_GENERATED_CARD:
-    # show a gpt-3 card
-    if st.button("Generate a unique card using gpt-3.5-turbo"):
-        st.write(get_gpt_card(model="gpt-3.5-turbo"))
+You can [print the game board](pages/2_Board.py) and read the [game rules](pages/3_Rules.py) here.
 
-    # show a gpt-4 card
-    if st.button("Generate a unique card using gpt-4"):
-        st.write(get_gpt_card(model="gpt-4"))
+Most exciting, you can [generate new game "event" cards](pages/1_Card_Generator.py) using OpenAI's GPT models!
+
+Each player can use this web app to roll dice and draw cards while playing.
+
+"""
+
+# Adding clickable email address
+st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
+
+show_gitub_repo_link()
+
+download_game_board_button()   
