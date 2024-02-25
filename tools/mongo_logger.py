@@ -4,10 +4,8 @@ import os
 import argparse
 from datetime import datetime
 from pymongo import MongoClient
-import ast
-import json
 from datetime import datetime
-import dateutil.parser
+from pymongo import MongoClient
 
 """
 Manage logging of generated text to MongoDB.
@@ -60,6 +58,7 @@ def get_all_records():
     except Exception as e:
         print(f"Failed to retrieve records from MongoDB: {e}")
         return []
+    
 
 
 if __name__ == "__main__":
@@ -79,13 +78,21 @@ if __name__ == "__main__":
             print(record)
 
     if args.feedback:
-        records = collection.find({"feedback": {"$exists": True}})
-        print(f"Retrieved {records.count()} feedback records from MongoDB.")
-        for record in records:
-            print(record)
+        # get all records that have a value of tag = feedback
+        filter = {"tag": "feedback"}
+        count = collection.count_documents(filter)
+        print(f"Retrieved {count} feedback records from MongoDB.")
+        if count > 0:
+            records = collection.find(filter)
+            for record in records:
+                print(record)
 
     if args.cards:
-        records = collection.find({"generated_text": {"$exists": True}})
-        print(f"Retrieved {records.count()} generated text records from MongoDB.")
-        for record in records:
-            print(record)
+        # get all records that have a value of tag = generated_text
+        filter = {"tag": "generated_text"}
+        count = collection.count_documents(filter)
+        if count > 0:
+            records = collection.find(filter)
+            for record in records:
+                print(record)
+        print(f"Retrieved {count:,} generated text records from MongoDB.")

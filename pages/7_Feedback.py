@@ -17,7 +17,7 @@ with st.form(key="feedback_form"):
 
 if submit:
     values = {
-        "feedback": feedback,
+        "text": feedback,
         "tag": "feedback"
     }
     log_mongo(values)
