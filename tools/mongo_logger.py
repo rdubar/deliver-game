@@ -99,6 +99,17 @@ class MongoConfig:
         
     def get_feedback(self):
         return self.get_by_tag("feedback")
+    
+    def clean_up(self):
+        # clean the existing DB in place
+        # Use This function for cleaning up the MongoDB as needed
+        if not self.connection_status:
+            return
+        try:
+            # if any entries have a "feedback" tag, remove only the tag elements
+            self.collection.update_many({"tag": "feedback"}, {"$unset": {"tag": ""}})
+        except Exception as e:
+            print(f"Failed to clean up MongoDB: {e}")
 
 mongo_db = MongoConfig()
 
@@ -110,6 +121,7 @@ if __name__ == "__main__":
     parser.add_argument('-l', '--log', type=str, help='Log the generated text to MongoDB.')
     parser.add_argument('-r', '--retrieve', action='store_true', help='Retrieve all records from MongoDB.')
     parser.add_argument('-b', '--backup', action='store_true', help='Backup all records from MongoDB to a JSON file.')
+    parser.add_argument('--clean', action='store_true', help='Clean up the MongoDB by removing feedback tags.')
     args = parser.parse_args()
 
     # if no arguments are provided, show the help message
@@ -136,3 +148,7 @@ if __name__ == "__main__":
     if args.backup:
         # download all records to a JSON file
         mongo_db.download_backup()
+
+    if args.clean:
+        # remove feedback entries from the MongoDB
+        mongo_db.clean_up()

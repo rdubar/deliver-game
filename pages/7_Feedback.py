@@ -33,4 +33,8 @@ if is_running_locally():
         # show newest feedback first
         feedback.reverse()
         for entry in feedback:
-            st.write(entry)
+            date = entry['timestamp'].strftime("%Y-%m-%d %H:%M")
+            text = entry['text']
+            st.write(date)
+            st.write(text)
+            st.write("---")
