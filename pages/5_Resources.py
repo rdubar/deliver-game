@@ -37,13 +37,17 @@ if records:
     st.header("AI Generated Cards:")
     text = ""
     count = 0
+    print(f'Found {len(records)} records in MongoDB.')
     for record in records:
-        entry = record['generated_text']
+        if not 'tag' in record or record['tag'] != 'generated_text':
+            continue
+        entry = record['text']
         if "example log entry" in entry:
             continue
         count += 1
         time = record['timestamp'].strftime("%Y-%m-%d %H:%M")
         model = record['model'] if 'model' in record else 'gpt-3.5-turbo'
+        entry = entry.replace("\\n", "\n").replace("\\'", "'")
         text += f"{time}  {model:20}\n{entry}\n\n"
     st.text_area(f"There have been {count:,} AI Generated Cards", text, height=400)
 

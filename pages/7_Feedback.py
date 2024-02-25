@@ -1,5 +1,5 @@
 import streamlit as st
-from tools.mongo_logger import log_text
+from tools.mongo_logger import log_mongo
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -16,5 +16,9 @@ with st.form(key="feedback_form"):
     submit = st.form_submit_button("Submit")
 
 if submit:
-    log_text(feedback, tag="feedback")
+    values = {
+        "feedback": feedback,
+        "tag": "feedback"
+    }
+    log_mongo(values)
     st.write("Thank you for your feedback!")

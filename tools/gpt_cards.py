@@ -2,7 +2,7 @@ import streamlit as st
 import openai
 import os
 from .settings import load_data, OPEN_AI_API_KEY
-from .mongo_logger import log_text
+from .mongo_logger import log_mongo
 
 openai.api_key = OPEN_AI_API_KEY or None
 
@@ -30,10 +30,15 @@ def get_gpt_card(model=None):
         return "No OpenAI API key found. Please contact support."
     try:
         text = query_chatgpt(full_prompt, model=model).choices[0].message.content
-        log_text(text, model=model)
+        values = {
+            "text": text,
+            "tag" : "generated_text"}
+        if model:
+            values["model"] = model
+        log_mongo(values)
         return text
     except Exception as e:
-        return f"Error: {e} [{len(api_key)} {len(full_prompt)}]"
+        return f"Error: {e}. Please contact support."
 
 if __name__ == "__main__":
     print(get_gpt_card())
