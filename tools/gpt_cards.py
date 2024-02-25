@@ -1,8 +1,7 @@
 import streamlit as st
 import openai
-import os
 from .settings import load_data, OPEN_AI_API_KEY
-from .mongo_logger import log_mongo
+from .mongo_logger import mongo_db
 
 openai.api_key = OPEN_AI_API_KEY or None
 
@@ -35,7 +34,8 @@ def get_gpt_card(model=None):
             "tag" : "generated_text"}
         if model:
             values["model"] = model
-        log_mongo(values)
+        mongo_db.write_log(values)
+        # log_mongo(values)
         return text
     except Exception as e:
         return f"Error: {e}. Please contact support."

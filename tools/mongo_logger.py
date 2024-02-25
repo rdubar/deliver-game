@@ -1,64 +1,78 @@
-# mongo_logger.py
 import streamlit as st
 import os
 import argparse
+import dataclasses
 from datetime import datetime
 from pymongo import MongoClient
-from datetime import datetime
-from pymongo import MongoClient
 
-"""
-Manage logging of generated text to MongoDB.
-"""
+@dataclasses.dataclass
+class MongoConfig:
+    uri: str = None
+    db_name: str = None
+    collection_name: str = None
+    client: MongoClient = dataclasses.field(init=False, default=None)
+    db: MongoClient = dataclasses.field(init=False, default=None)
+    collection: MongoClient = dataclasses.field(init=False, default=None)
+    connection_status: bool = dataclasses.field(init=False, default=False)
 
-# Setup MongoDB connection
-try:
-    mongo_uri = st.secrets["mongodb"]["uri"] if "mongodb" in st.secrets else os.environ.get('MONGO_URI', '')
-    client = MongoClient(mongo_uri)
-    db_name = st.secrets["mongodb"]["db"] if "mongodb" in st.secrets else os.environ.get('MONGO_DB', '')
-    collection_name = st.secrets["mongodb"]["collection"] if "mongodb" in st.secrets else os.environ.get('MONGO_COLLECTION', '')
-    db = client[db_name]
-    collection = db[collection_name]
-except Exception as e:
-    print(f"Failed to connect to MongoDB: {e}")
-    mongo_uri = None
-
-if not mongo_uri:
-    print("MongoDB URI not found. Please setup in secrets.toml.")
-
-def log_mongo(values):
-    """
-    Logs dictionary of values to MongoDB.
-    """
-    if not mongo_uri:
-        return
-    if not isinstance(values, dict):
-        print("Invalid input to log_text. Expected dictionary.")
-        return
-    values["timestamp"] = datetime.now()
-    try:
-        collection.insert_one(values)
-        print("Log successfully written to MongoDB.")
-    except Exception as e:
-        print(f"Failed to write log to MongoDB: {e}\n{values}")
-
-def get_all_records():
-    """
-    Retrieves all records from the MongoDB collection.
-
-    Returns:
-    - A list of dictionaries, each representing a document in the collection.
-    """
-    try:
-        records = list(collection.find({}))
-        # Optionally, convert ObjectId to string or perform other formatting
-        for record in records:
-            record['_id'] = str(record['_id'])  # Convert ObjectId to string for easier handling
-        return records
-    except Exception as e:
-        print(f"Failed to retrieve records from MongoDB: {e}")
-        return []
+    def __post_init__(self):
+        self.uri = self.uri or st.secrets["mongodb"]["uri"] if "mongodb" in st.secrets else os.environ.get('MONGO_URI', '')
+        self.db_name = self.db_name or st.secrets["mongodb"]["db"] if "mongodb" in st.secrets else os.environ.get('MONGO_DB', '')
+        self.collection_name = self.collection_name or st.secrets["mongodb"]["collection"] if "mongodb" in st.secrets else os.environ.get('MONGO_COLLECTION', '')
+        self.connect()
     
+    def connect(self):
+        try:
+            self.client = MongoClient(self.uri)
+            self.db = self.client[self.db_name]
+            self.collection = self.db[self.collection_name]
+            self.connection_status = True
+        except Exception as e:
+            print(f"Failed to connect to MongoDB: {e}")
+            self.connection_status = False
+        
+    def write_log(self, values):
+        if not self.connection_status:
+            return
+        if not isinstance(values, dict):
+            print("Invalid input to log. Expected dictionary.")
+            return
+        values["timestamp"] = datetime.now()
+        try:
+            self.collection.insert_one(values)
+            print("Log successfully written to MongoDB.")
+        except Exception as e:
+            print(f"Failed to write log to MongoDB: {e}\n{values}")
+    
+    def get_records(self, filter=None):
+        if not self.connection_status:
+            return []
+        filter = filter or {}  # Use an empty dict if filter is None
+        try:
+            records = list(self.collection.find(filter))
+            for record in records:
+                record['_id'] = str(record['_id'])  # Convert ObjectId to string
+            return records
+        except Exception as e:
+            print(f"Failed to retrieve records from MongoDB: {e}")
+            return []
+        
+    def get_by_tag(self, tag):
+        return self.get_records({"tag": tag})
+
+    def report_by_tag(self, tag):
+        records = self.get_by_tag(tag)
+        for record in records:
+            print(record)
+        print(f"Retrieved {len(records)} records from MongoDB with tag '{tag}'.")
+
+    def report_all(self):
+        records = self.get_records()
+        for record in records:
+            print(record)
+        print(f"Retrieved all {len(records):,} records from MongoDB.")
+
+mongo_db = MongoConfig()
 
 
 if __name__ == "__main__":
@@ -69,30 +83,18 @@ if __name__ == "__main__":
     parser.add_argument('-r', '--retrieve', action='store_true', help='Retrieve all records from MongoDB.')
     args = parser.parse_args()
 
-    # if args.log:
-    #     log_mongo(args.log)
+    if args.log:
+        mongo_db.write_log({"text": args.log, "tag": "test"})
+        print(f"Logged '{args.log}' to MongoDB.")
+
     if args.retrieve:
-        records = get_all_records()
-        print(f"Retrieved {len(records)} records from MongoDB.")
-        for record in records:
-            print(record)
+        # get all records from the MongoDB
+        mongo_db.report_all()
 
     if args.feedback:
         # get all records that have a value of tag = feedback
-        filter = {"tag": "feedback"}
-        count = collection.count_documents(filter)
-        print(f"Retrieved {count} feedback records from MongoDB.")
-        if count > 0:
-            records = collection.find(filter)
-            for record in records:
-                print(record)
+        mongo_db.report_by_tag("feedback")
 
     if args.cards:
         # get all records that have a value of tag = generated_text
-        filter = {"tag": "generated_text"}
-        count = collection.count_documents(filter)
-        if count > 0:
-            records = collection.find(filter)
-            for record in records:
-                print(record)
-        print(f"Retrieved {count:,} generated text records from MongoDB.")
+        mongo_db.report_by_tag("generated_text")

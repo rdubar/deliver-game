@@ -1,6 +1,6 @@
 import streamlit as st
 from tools.settings import PROMPT, CARDS, OPEN_AI_API_KEY, WORDCLOUD_PATH, show_gitub_repo_link
-from tools.mongo_logger import get_all_records
+from tools.mongo_logger import mongo_db
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -10,7 +10,8 @@ st.markdown("<a id='top'></a>", unsafe_allow_html=True)
 st.title('Resources')
 
 # get all records, to test if we want to show this content
-records = get_all_records()
+# records = get_all_records()
+records = mongo_db.get_records()
 
 # Create a table of contents
 st.markdown("[Source Code](#source-code)")
