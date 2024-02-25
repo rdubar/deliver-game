@@ -33,8 +33,7 @@ if is_running_locally():
         # show newest feedback first
         feedback.reverse()
         for entry in feedback:
-            date = entry['timestamp'].strftime("%Y-%m-%d %H:%M")
-            text = entry['text']
-            st.write(date)
-            st.write(text)
-            st.write("---")
+            entry['timestamp'] = entry['timestamp'].strftime("%Y-%m-%d %H:%M")
+            st.write(entry)
+    else:
+        st.write("No feedback received yet.")
