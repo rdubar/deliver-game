@@ -14,17 +14,11 @@ Welcome to **Deliverance**, a fun game for 1-5 players aged 8 and up.
 
 It was developed for the Open University U101 module *Design thinking: creativity for the 21st century* TMA03 in February 2024.
 
-You can [print the game board](pages/2_Board.py) and read the [game rules](pages/3_Rules.py) here.
+This page can use AI to generate unique game cards every time you play!
 
-Most exciting, you can [generate new game "event" cards](pages/1_Card_Generator.py) using OpenAI's GPT models!
+You can find the game board, rules, card generator, and feedback form in the menu.
 
-Each player can use this web app to roll dice and draw cards while playing.
+Please enjoy!
 
+-- Roger
 """
-
-# Adding clickable email address
-st.markdown('**Send your feedback:** [rdubar@gmail.com](mailto:rdubar@gmail.com)', unsafe_allow_html=True)
-
-show_gitub_repo_link()
-
-download_game_board_button()   
