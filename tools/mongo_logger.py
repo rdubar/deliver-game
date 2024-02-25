@@ -109,6 +109,11 @@ if __name__ == "__main__":
     parser.add_argument('-b', '--backup', action='store_true', help='Backup all records from MongoDB to a JSON file.')
     args = parser.parse_args()
 
+    # if no arguments are provided, show the help message
+    if not any(vars(args).values()):
+        parser.print_help()
+        exit()
+
     if args.log:
         mongo_db.write_log({"text": args.log, "tag": "test"})
         print(f"Logged '{args.log}' to MongoDB.")

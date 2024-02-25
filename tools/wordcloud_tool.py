@@ -1,4 +1,5 @@
 import os
+import argparse
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 try:
@@ -41,7 +42,22 @@ def make_game_wordcloud(text=FULL_PROMPT):
 
 # Example usage
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Generate a word cloud from a given text.')
+    parser.add_argument('-e', '--example', action='store_true', help='Use example text for the word cloud')
+    parser.add_argument('-u', '--update', action='store_true', help='Update the word cloud image')
+    args = parser.parse_args()
+
+    print("Wordcloud generator")
+
     example_text = "This is a sample text for generating a word cloud. Word clouds are visual representations of word frequency."
     custom_stopwords = {'for', 'a', 'are'}  # Example of additional stopwords
-    # create_wordcloud(example_text, stopwords=custom_stopwords, filename='example_wordcloud.png')
-    make_game_wordcloud()
+
+    if args.example:
+        create_wordcloud(example_text, stopwords=custom_stopwords, filename='example_wordcloud.png')
+    
+    if args.update:
+        make_game_wordcloud()
+
+    # if no args given, just print the help
+    if not any(vars(args).values()):
+        parser.print_help()
