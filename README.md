@@ -18,7 +18,7 @@ Have fun, and modify for your own use as needed.
 - **ChatGPT AI generated fortune**: Click to generate a unique fortune each time.
 - **Simple UI**: A clean and straightforward interface for easy use.
 - **Extensible**: Add your own fortunes to the list by simply editing a text file.
--- **Feedback**: A simple feedback form using MongoDB. 
+- **Feedback**: A simple feedback form using MongoDB. 
 - **Logging**: The time, text and AI model of any AI generated cards are logged on MongoDB (Run `python tools/mongo_logger.py` to manage)
 - **Failsafe**: If openai and/or MongoDB details are not provided, the respective features are not shown to the user.
 - **Wordcloud**: A wordcloud of words in the game. (Run `python tools/wordcloud_tool.py` to update).
@@ -66,7 +66,7 @@ streamlit run Home.py
 
 # Navigate to http://localhost:8501 in your web browser to view the app.
 ```
-If you do not wish to use the experimental AIU card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `tools/settings.py` file.
+If you do not wish to use the experimental AI card generator functionality, just set `SHOW_GENERATED_CARD = False` in the `tools/settings.py` file.
 
 ## How to Contribute
 Your contributions and suggesitons are welcome! If you'd like to add more fortunes or improve the app:
