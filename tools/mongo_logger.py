@@ -102,7 +102,7 @@ class MongoConfig:
     
     def clean_up(self):
         # clean the existing DB in place
-        # Use This function for cleaning up the MongoDB as needed
+        # Use This function for cleaning up the Mongo database as needed
         if not self.connection_status:
             return
         try:
