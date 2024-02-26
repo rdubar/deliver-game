@@ -4,7 +4,7 @@
 
 This Streamlit App shows random lines of text fom a file, and can also use AI to generate new game cards automagically.
 
-It was made as an aid to a boardgame development project for the Open University's U101 module "Design thinking: creativity for the 21st century". 
+It was made as an aid for a student project to design a boardgame.
 
 You use it to easily try out random cards for games without having to print them out, or even create new game cards every time you play.
 
@@ -86,7 +86,6 @@ Distributed under the MIT License. See LICENSE for more information.
 * Example Link: https://deliver-game.streamlit.app/
 
 ## Acknowledgements
-* The Open University - The U101 Team, for inspiration.
 * Alphapet Ventures - My employer's parent company, for their support.
 * Streamlit - "The fastest way to build and share data apps."
 * Python - The programming language used to create this app.

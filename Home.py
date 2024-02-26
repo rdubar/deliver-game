@@ -12,8 +12,6 @@ st.title('The Delivery Game')
 """
 Welcome to **Deliverance**, a fun game for 1-5 players aged 8 and up.
 
-It was developed for the Open University U101 module *Design thinking: creativity for the 21st century* TMA03 in February 2024.
-
 This page can use AI to generate unique game cards every time you play!
 
 You can find the game board, rules, card generator, and feedback form in the menu.

@@ -66,7 +66,7 @@ def download_game_board_button():
             )   
 
 def is_running_locally():
-    # fix as needed to ensure it works in your environment
+    # fix as needed to ensure this works in your environment
     # This is important to prevent showing feedback received publicly
     return "opt" in BASE_DIR
 
