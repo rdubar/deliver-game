@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import socket
 
 """
 Global settings & helpers for the Random Card Generator app.
@@ -65,8 +66,11 @@ def download_game_board_button():
             )   
 
 def is_running_locally():
-    # Assuming you run your app on a different port when deploying remotely
-    return st.config.get_option('server.port') == 8501
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    # Assuming local IP addresses indicate a local environment
+    return ip_address.startswith("127.") or ip_address.startswith("192.168.")
+
 
 PROMPT = load_data('prompt.txt')
 RULES = load_data('rules.md')
