@@ -66,12 +66,9 @@ def download_game_board_button():
             )   
 
 def is_running_locally():
-    hostname = socket.gethostname()
-    ip_address = socket.gethostbyname(hostname)
-    # Assuming local IP addresses indicate a local environment
-    st.write(f"Running on {hostname} with IP address {ip_address}")
-    st.write(BASE_DIR)
-    return ip_address.startswith("127.") or ip_address.startswith("192.168.")
+    # fix as needed to ensure it works in your environment
+    # This is important to prevent showing feedback received publicly
+    return "opt" in BASE_DIR
 
 
 PROMPT = load_data('prompt.txt')
