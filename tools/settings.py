@@ -69,6 +69,7 @@ def is_running_locally():
     hostname = socket.gethostname()
     ip_address = socket.gethostbyname(hostname)
     # Assuming local IP addresses indicate a local environment
+    st.write(f"Running on {hostname} with IP address {ip_address}")
     return ip_address.startswith("127.") or ip_address.startswith("192.168.")
 
 
