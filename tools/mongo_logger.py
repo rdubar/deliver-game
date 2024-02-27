@@ -69,7 +69,7 @@ class MongoConfig:
         records = self.get_by_tag(tag)
         for record in records:
             print(record)
-        print(f"Retrieved {len(records)} records from MongoDB with tag '{tag}'.")
+        print(f"Retrieved {len(records):,} records from MongoDB with tag '{tag}'.")
 
     def report_all(self):
         records = self.get_records()
@@ -100,6 +100,9 @@ class MongoConfig:
     def get_feedback(self):
         return self.get_by_tag("feedback")
     
+    def get_cards(self):
+        return self.get_by_tag("generated_text")
+    
     def clean_up(self):
         # clean the existing DB in place
         # Use This function for cleaning up the Mongo database as needed
@@ -111,6 +114,14 @@ class MongoConfig:
         except Exception as e:
             print(f"Failed to clean up MongoDB: {e}")
 
+    def st_report(self, text_only=False):
+        feedback_count = len(self.get_feedback()) 
+        cards_count = len(self.get_cards())
+        message = f"Cards generated: {cards_count:,}\nFeedback received: {feedback_count:,}"
+        print(message)
+        if not text_only:
+            st.markdown(f'*{message}*')   
+
 mongo_db = MongoConfig()
 
 
@@ -119,7 +130,8 @@ if __name__ == "__main__":
     parser.add_argument('-f', '--feedback', action='store_true', help='Show feedback logged MongoDB.')
     parser.add_argument('-c', '--cards', action='store_true', help='Show cards logged to MongoDB.')    
     parser.add_argument('-l', '--log', type=str, help='Log the generated text to MongoDB.')
-    parser.add_argument('-r', '--retrieve', action='store_true', help='Retrieve all records from MongoDB.')
+    parser.add_argument('-a', '--all', action='store_true', help='Retrieve all records from MongoDB.')   
+    parser.add_argument('-r', '--report', action='store_true', help='Report counts from MongoDB.')  
     parser.add_argument('-b', '--backup', action='store_true', help='Backup all records from MongoDB to a JSON file.')
     parser.add_argument('--clean', action='store_true', help='Clean up the MongoDB by removing feedback tags.')
     args = parser.parse_args()
@@ -133,7 +145,7 @@ if __name__ == "__main__":
         mongo_db.write_log({"text": args.log, "tag": "test"})
         print(f"Logged '{args.log}' to MongoDB.")
 
-    if args.retrieve:
+    if args.all:
         # get all records from the MongoDB
         mongo_db.report_all()
 
@@ -152,3 +164,7 @@ if __name__ == "__main__":
     if args.clean:
         # remove feedback entries from the MongoDB
         mongo_db.clean_up()
+
+    if args.report:
+        # report the counts of feedback and generated text
+        mongo_db.st_report(text_only=True)  
