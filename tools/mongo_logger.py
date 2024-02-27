@@ -114,13 +114,11 @@ class MongoConfig:
         except Exception as e:
             print(f"Failed to clean up MongoDB: {e}")
 
-    def st_report(self, text_only=False):
+    def text_report(self):
         feedback_count = len(self.get_feedback()) 
         cards_count = len(self.get_cards())
-        message = f"Cards generated: {cards_count:,}\nFeedback received: {feedback_count:,}"
-        print(message)
-        if not text_only:
-            st.markdown(f'*{message}*')   
+        message = f"{cards_count:,} cards have been generated, and {feedback_count:,} feedback messages have been received."
+        return message 
 
 mongo_db = MongoConfig()
 
@@ -167,4 +165,4 @@ if __name__ == "__main__":
 
     if args.report:
         # report the counts of feedback and generated text
-        mongo_db.st_report(text_only=True)  
+        print(mongo_db.text_report())
