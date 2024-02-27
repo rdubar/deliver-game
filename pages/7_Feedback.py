@@ -7,7 +7,7 @@ st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 st.title("Feedback")
 
 """
-I'd love to hear your thoughts on the game. Please fill out the form below.
+We'd love to hear your thoughts on the game. Please fill out the form below.
 
 You can leave your name, location and email address if you like!
 

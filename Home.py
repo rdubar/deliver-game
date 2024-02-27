@@ -18,5 +18,5 @@ You can find the game board, rules, card generator, and feedback form in the men
 
 Please enjoy!
 
--- Roger
+-- Rog
 """
