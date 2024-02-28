@@ -1,6 +1,8 @@
 import streamlit as st
 from tools.settings import SPECIAL
-from tools.throw_dice import st_throw_dice_button
+from tools.throw_dice import st_throw_dice_button, init_dice
+
+init_dice()
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
