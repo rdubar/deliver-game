@@ -11,7 +11,7 @@ def st_mongo_chart():
     data = []
     for record in records:
         day = pd.to_datetime(record['timestamp']).strftime("%Y-%m-%d")
-        tag = record['tag']
+        tag = record.get('tag', 'none')
         model = record.get('model', 'none')  # Use 'none' if 'model' is not in record
 
         # Determine the label based on the tag
@@ -19,6 +19,9 @@ def st_mongo_chart():
             label = 'feedback'
         elif tag == 'generated_text':
             label = model
+        else:
+            print(f"Unknown tag: {tag}")
+            print(record)
 
         data.append({'day': day, 'label': label, 'count': 1})
 

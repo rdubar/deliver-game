@@ -5,6 +5,7 @@ import json
 import dataclasses
 from datetime import datetime
 from pymongo import MongoClient
+from bson.objectid import ObjectId # use to convert string to ObjectId
 try:
     from .settings import BACKUP_DIR
 except ImportError:
@@ -108,11 +109,14 @@ class MongoConfig:
         # Use This function for cleaning up the Mongo database as needed
         if not self.connection_status:
             return
-        try:
-            # if any entries have a "feedback" tag, remove only the tag elements
-            self.collection.update_many({"tag": "feedback"}, {"$unset": {"tag": ""}})
-        except Exception as e:
-            print(f"Failed to clean up MongoDB: {e}")
+
+        # get all records with no "tag" value and print them
+        records = self.get_records({"tag": {"$exists": False}})
+        for record in records:
+            id = ObjectId(record["_id"])
+            print(id, record)
+        print(f"Retrieved {len(records):,} records from MongoDB with no tag.")
+
 
     def text_report(self):
         feedback_count = len(self.get_feedback()) 
@@ -137,7 +141,7 @@ if __name__ == "__main__":
     # if no arguments are provided, show the help message
     if not any(vars(args).values()):
         parser.print_help()
-        exit()
+        # exit()
 
     if args.log:
         mongo_db.write_log({"text": args.log, "tag": "test"})
