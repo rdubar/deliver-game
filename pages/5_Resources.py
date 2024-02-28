@@ -3,7 +3,6 @@ import os
 from tools.settings import PROMPT, CARDS, OPEN_AI_API_KEY, WORDCLOUD_PATH, show_gitub_repo_link
 from tools.mongo_logger import mongo_db
 from tools.wordcloud_tool import make_game_wordcloud
-from tools.mongo_chart import st_mongo_chart
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -24,7 +23,6 @@ if OPEN_AI_API_KEY:
 if records:
     st.markdown("[AI Generated Cards](#ai-generated-cards)")
 st.markdown("[Wordcloud](#wordcloud)")
-st.markdown("[Statistics](#statistics)")
 
 # Create the content
 st.header("Source Code")
@@ -69,13 +67,6 @@ try:
     st.image(WORDCLOUD_PATH)
 except Exception as e:
     st.write(f"Error: {e}")
-
-st.header("Statistics")
-st.text(mongo_db.text_report())
-
-# Show the chart
-st_mongo_chart()
-
 
 # link to top of page
 st.markdown("<a href='#top'>Back to top</a>", unsafe_allow_html=True)

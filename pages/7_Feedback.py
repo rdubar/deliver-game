@@ -1,6 +1,7 @@
 import streamlit as st
 from tools.mongo_logger import mongo_db
 from tools.settings import is_running_locally
+from tools.mongo_chart import st_mongo_chart
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -29,9 +30,15 @@ if submit:
 
 # Only show feedback received if running locally
 if is_running_locally():
+
+    st.subheader("Statistics")
+
+    # Show the chart
+    st_mongo_chart()
+
     feedback = mongo_db.get_feedback()
     if feedback:
-        st.header("Feedback Received:")
+        st.subheader("Feedback Received:")
         # show newest feedback first
         feedback.reverse()
         for entry in feedback:
