@@ -57,7 +57,7 @@ def load_data(filename, split=False):
 
 def download_game_board_button():
     # download button for the PDF
-    with open(os.path.join(IMAGES_DIR, "Game_Board.pdf"), "rb") as file:
+    with open(os.path.join(IMAGES_DIR, "game_board.jpg"), "rb") as file:
         st.download_button(
                 label="Download Game Board",
                 data=file,
