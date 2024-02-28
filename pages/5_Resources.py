@@ -3,6 +3,7 @@ import os
 from tools.settings import PROMPT, CARDS, OPEN_AI_API_KEY, WORDCLOUD_PATH, show_gitub_repo_link
 from tools.mongo_logger import mongo_db
 from tools.wordcloud_tool import make_game_wordcloud
+from tools.mongo_chart import st_mongo_chart
 
 st.set_page_config(page_title="Delivery Game", page_icon=":game_die:")
 
@@ -22,22 +23,23 @@ if OPEN_AI_API_KEY:
     st.markdown("[AI Prompt](#ai-prompt)")
 if records:
     st.markdown("[AI Generated Cards](#ai-generated-cards)")
+    st.markdown("[Statistics](#statistics)")
 st.markdown("[Wordcloud](#wordcloud)")
 
 # Create the content
-st.header("Source Code")
+st.subheader("Source Code")
 show_gitub_repo_link()
 
-st.header("Default Game Cards")
+st.subheader("Default Game Cards")
 st.text_area("Default Game Cards:", value=CARDS, height=400, max_chars=1500, key='cards')
 
 if OPEN_AI_API_KEY:
-    st.header("AI Prompt")
+    st.subheader("AI Prompt")
     st.text_area("AI Prompt (used with the game rules and standard cards to generate new cards):", 
         value=PROMPT, height=400, max_chars=1500, key='prompt')
 
 if records:
-    st.header("AI Generated Cards:")
+    st.subheader("AI Generated Cards:")
     text = ""
     count = 0
     print(f'Found {len(records)} records in MongoDB.')
@@ -54,11 +56,14 @@ if records:
         text += f"{time}  {model:20}\n{entry}\n\n"
     st.text_area(f"There have been {count:,} AI Generated Cards", text, height=400)
 
+    st.subheader("Statistics")
+    st_mongo_chart()
+
 
 if not os.path.exists(WORDCLOUD_PATH):
     make_game_wordcloud()
     
-st.header("Wordcloud")
+st.subheader("Wordcloud")
 
 """
 This is a wordcloud of all of the text in the game:
