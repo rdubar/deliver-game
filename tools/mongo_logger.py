@@ -36,6 +36,10 @@ class MongoConfig:
         except Exception as e:
             print(f"Failed to connect to MongoDB: {e}")
             self.connection_status = False
+
+    @staticmethod
+    def str_to_id(str: str) -> ObjectId:
+        return ObjectId(str)
         
     def write_log(self, values):
         if not self.connection_status:
@@ -113,10 +117,21 @@ class MongoConfig:
         # get all records with no "tag" value and print them
         records = self.get_records({"tag": {"$exists": False}})
         for record in records:
-            id = ObjectId(record["_id"])
+            id = self.str_to_id(record['_id'])
             print(id, record)
         print(f"Retrieved {len(records):,} records from MongoDB with no tag.")
 
+    def backup_collection(self):
+        backup_name = self.db_name + "_backup_" + datetime.now().strftime("%Y%m%d")
+        print(f"Backing up collection {self.collection_name} in {self.db_name} to {backup_name}...")
+        backup_db = self.client[backup_name]
+        backup_collection = backup_db[self.collection_name]
+        records = list(self.db[self.collection_name].find({}))
+        if records:  # Check if there are any records to backup
+            backup_collection.insert_many(records)
+            print(f"Backup of {len(records):,} records saved to {backup_name}.")
+        else:
+            print("No records found to backup.")
 
     def text_report(self):
         feedback_count = len(self.get_feedback()) 
@@ -134,7 +149,8 @@ if __name__ == "__main__":
     parser.add_argument('-l', '--log', type=str, help='Log the generated text to MongoDB.')
     parser.add_argument('-a', '--all', action='store_true', help='Retrieve all records from MongoDB.')   
     parser.add_argument('-r', '--report', action='store_true', help='Report counts from MongoDB.')  
-    parser.add_argument('-b', '--backup', action='store_true', help='Backup all records from MongoDB to a JSON file.')
+    parser.add_argument('-b', '--backup', action='store_true', help='Backup the MongoDB collection to a new database.')      
+    parser.add_argument('-d', '--download', action='store_true', help='Download all records from MongoDB to a JSON file.')
     parser.add_argument('--clean', action='store_true', help='Clean up the MongoDB by removing feedback tags.')
     args = parser.parse_args()
 
@@ -159,9 +175,13 @@ if __name__ == "__main__":
         # get all records that have a value of tag = generated_text
         mongo_db.report_by_tag("generated_text")
 
-    if args.backup:
+    if args.download:
         # download all records to a JSON file
         mongo_db.download_backup()
+
+    if args.backup:
+        # backup the MongoDB collection to a new database
+        mongo_db.backup_collection()
 
     if args.clean:
         # remove feedback entries from the MongoDB

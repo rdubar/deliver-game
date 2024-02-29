@@ -7,8 +7,6 @@ def init_dice():
         st.session_state['last_throw'] = None
         st.session_state['repeat_count'] = 0
 
-init_dice()
-
 def st_throw_dice_button(sides=6, show_sides=True):
     # Button to throw the dice
     button_text = f"Throw a {sides}-sided dice" if show_sides else "Throw the dice"
@@ -32,3 +30,5 @@ def st_throw_dice_button(sides=6, show_sides=True):
             msg = f"You threw a {dice}!"
         
         st.write(msg)
+
+init_dice()
