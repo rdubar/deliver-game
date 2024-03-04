@@ -1,6 +1,4 @@
 import streamlit as st
-from tools.settings import CARDS, SHOW_GENERATED_CARD
-from tools.settings import download_game_board_button, show_gitub_repo_link
 
 # streamlit run Home.py
 
