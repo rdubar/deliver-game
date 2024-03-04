@@ -55,16 +55,19 @@ def load_data(filename, split=False):
         print(f"Error loading data from {file_path}: {e}")
         return None
 
-def download_game_board_button():
-    # download button for the PDF
-    with open(os.path.join(IMAGES_DIR, "game_board.jpg"), "rb") as file:
-        st.download_button(
-                label="Download Game Board",
-                data=file,
-                file_name="Game_Board.pdf",
-                mime="application/octet-stream"
-            )   
-
+def download_game_board_buttons():
+# Provide download buttons for all the JPG in the images directory
+    image_files = [f for f in os.listdir(IMAGES_DIR) if f.endswith('.jpg')]  
+    for image_file in sorted(image_files):
+        with open(os.path.join(IMAGES_DIR, image_file), "rb") as file:
+            display_name = image_file.replace("_", " ").replace(".jpg", "").title()
+            st.download_button(
+                    label=f"Download {display_name}",
+                    data=file,
+                    file_name=image_file,
+                    mime="application/octet-stream"
+            )
+            
 def is_running_locally():
     # fix as needed to ensure this works in your environment
     # This is important to prevent showing feedback received publicly

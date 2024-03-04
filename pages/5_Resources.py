@@ -1,6 +1,6 @@
 import streamlit as st
 import os
-from tools.settings import PROMPT, CARDS, OPEN_AI_API_KEY, WORDCLOUD_PATH, show_gitub_repo_link
+from tools.settings import PROMPT, CARDS, OPEN_AI_API_KEY, WORDCLOUD_PATH, show_gitub_repo_link, download_game_board_buttons
 from tools.mongo_logger import mongo_db
 from tools.wordcloud_tool import make_game_wordcloud
 from tools.mongo_chart import st_mongo_chart
@@ -17,6 +17,7 @@ st.title('Resources')
 records = mongo_db.get_records()
 
 # Create a table of contents
+st.markdown("[Game Board](#game-board)")
 st.markdown("[Source Code](#source-code)")
 st.markdown("[Default Game Cards](#default-game-cards)")
 if OPEN_AI_API_KEY:
@@ -27,6 +28,9 @@ if records:
 st.markdown("[Wordcloud](#wordcloud)")
 
 # Create the content
+#st.subheader("Game Board")
+download_game_board_buttons()
+
 st.subheader("Source Code")
 show_gitub_repo_link()
 

@@ -33,3 +33,8 @@ if st.button("Draw a Special Delivery Card"):
         st.session_state.special_list = create_special_list()  # Create and store a new list in session state
     st.session_state.last_special = st.session_state.special_list.pop()  # Pop the last item from the list
     st.write(st.session_state.last_special)  # Display the last item
+
+# Privide a help area with all of the special delivery cards
+st.divider()
+with st.expander("Special Delivery Cards"):
+    st.write(SPECIAL)
