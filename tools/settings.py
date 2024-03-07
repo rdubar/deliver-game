@@ -17,6 +17,10 @@ IMAGES_DIR = os.path.join(BASE_DIR, 'images')
 
 WORDCLOUD_PATH = os.path.join(IMAGES_DIR, 'wordcloud.png')
 
+QR_CODE_PATH = os.path.join(IMAGES_DIR, 'qrcode_deliver-game.streamlit.app.png')
+
+PAGE_URL = "https://deliver-game.streamlit.app"
+
 GITHIB_REPO_URL = "https://github.com/rdubar/random-card"
 
 BACKUP_DIR = os.path.join(BASE_DIR, 'backups')
