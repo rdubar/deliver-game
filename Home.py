@@ -18,3 +18,9 @@ Please enjoy!
 
 -- Rog
 """
+
+st.page_link("pages/1_Card_Generator.py", label = "Card Generator", icon="🎴")
+st.page_link("pages/2_Board.py", label = "Game Board", icon="🎲")
+st.page_link("pages/3_Rules.py", label = "Rules", icon="📜")
+st.page_link("pages/4_Special_Delivery.py", label = "Special Delivery", icon="📦")
+st.page_link("pages/7_Feedback.py", label = "Feedback", icon="📝")
