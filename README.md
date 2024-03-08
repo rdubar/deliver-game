@@ -23,6 +23,7 @@ Have fun, and modify for your own use as needed.
 - **Failsafe**: If openai and/or MongoDB details are not provided, the respective features are not shown to the user.
 - **Wordcloud**: A wordcloud of words in the game. (Run `python tools/wordcloud_tool.py` to update).
 Note that no personal or user data is recorded - just the time a button was pressed, and the text it generated, or any text provided to the feedback form. 
+- **QR Code**: Generate a QR code for your game URL using `tools/qr.py`
 
 ## Getting Started
 

@@ -87,12 +87,6 @@ CARDS = load_data('delivery.txt')
 SPECIAL = load_data('special.md')
 FULL_PROMPT = PROMPT + RULES + CARDS
 
-try:
-    if not os.path.exists(QR_CODE_PATH):
-        generate_qr_code(PAGE_URL, QR_CODE_PATH)
-        print(f"QR code image saved to {QR_CODE_PATH}")
-except Exception as e:
-    print(f"Error generating QR code: {e}")
 
 
 

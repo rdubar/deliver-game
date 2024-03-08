@@ -1,6 +1,12 @@
 import qrcode
 import argparse
 from typing import Optional
+import os
+
+try:
+    from tools.settings import QR_CODE_PATH, PAGE_URL
+except:
+    from settings import QR_CODE_PATH, PAGE_URL
 
 def generate_qr_code(data: str, filename: str = "qr_code.png", box_size: int = 10, border: int = 4, fill_color: str = "black", back_color: str = "white"):
     """
@@ -45,4 +51,9 @@ if __name__ == "__main__":
         back_color=args.back_color
     )
 
-    
+    try:
+        if not os.path.exists(QR_CODE_PATH):
+            generate_qr_code(PAGE_URL, QR_CODE_PATH)
+            print(f"QR code image saved to {QR_CODE_PATH}")
+    except Exception as e:
+        print(f"Error generating QR code: {e}")
