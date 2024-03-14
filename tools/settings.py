@@ -1,7 +1,5 @@
 import streamlit as st
 import os
-import socket
-from tools.qr import generate_qr_code
 
 
 
